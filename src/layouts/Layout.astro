@@ -99,6 +99,20 @@ const {
         const lang = (e as CustomEvent).detail
         document.documentElement.setAttribute('data-lang', lang)
         document.documentElement.lang = lang
+
+        // Update Page Title & Description dynamically
+        const titles: any = {
+          es: 'Tours de Jet Ski y ATV Premium | Playa Flamingo y Conchal | Jireh Adventure',
+          en: 'Premium Jet Ski & ATV Tours | Playa Flamingo & Conchal | Jireh Adventure'
+        };
+        const descriptions: any = {
+          es: 'Tours de Jet Ski y ATV de alta gama en Playa Flamingo, Playa Conchal y Brasilito, Costa Rica. Reserva tu aventura premium hoy.',
+          en: 'High-end Jet Ski and ATV jungle tours in Playa Flamingo, Playa Conchal, and Brasilito, Costa Rica. Book your premium Guanacaste adventure today.'
+        };
+        
+        document.title = titles[lang] || titles.en;
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', descriptions[lang] || descriptions.en);
       })
     </script>
 

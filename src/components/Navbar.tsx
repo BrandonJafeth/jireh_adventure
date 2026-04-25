@@ -80,7 +80,7 @@ export default function Navbar() {
           </button>
 
           <a
-            href={WHATSAPP_URL}
+            href={`https://wa.me/50600000000?text=${encodeURIComponent(t(translations.whatsapp.message, lang))}`}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#1A9E75] text-white rounded-full px-4 py-2 font-body font-semibold text-xs tracking-wider uppercase inline-flex items-center gap-1.5 hover:bg-[#158a65] transition-colors"

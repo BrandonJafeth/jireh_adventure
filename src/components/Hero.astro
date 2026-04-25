@@ -33,10 +33,19 @@ const h = translations.hero;
   <div class="hero-content">
     
     <!-- Heading -->
-    <h1 translate="no" class="notranslate font-heading font-[900] uppercase leading-[0.92] tracking-[0.03em] mx-auto" style="font-size: clamp(3rem, 11vw, 9.5rem); max-width: 100vw; overflow-wrap: break-word;">
-      <span class="block text-[#0B3D5E]" style="animation: fade-up 0.7s ease both; animation-delay: 0.15s;">NOT JUST A TOUR.</span>
-      <span class="block text-[#0B3D5E]" style="animation: fade-up 0.7s ease both; animation-delay: 0.27s;">AN UNFORGETTABLE</span>
-      <span class="block text-[#1A9E75]" style="animation: fade-up 0.7s ease both; animation-delay: 0.39s;">EXPERIENCE.</span>
+    <h1 class="font-heading font-[900] uppercase leading-[0.92] tracking-[0.03em] mx-auto" style="font-size: clamp(3rem, 11vw, 9.5rem); max-width: 100vw; overflow-wrap: break-word;">
+      <span class="block text-[#0B3D5E]" style="animation: fade-up 0.7s ease both; animation-delay: 0.15s;">
+        <span class="lang-es">{h.h1_1.es}</span>
+        <span class="lang-en">{h.h1_1.en}</span>
+      </span>
+      <span class="block text-[#0B3D5E]" style="animation: fade-up 0.7s ease both; animation-delay: 0.27s;">
+        <span class="lang-es">{h.h1_2.es}</span>
+        <span class="lang-en">{h.h1_2.en}</span>
+      </span>
+      <span class="block text-[#1A9E75]" style="animation: fade-up 0.7s ease both; animation-delay: 0.39s;">
+        <span class="lang-es">{h.h1_3.es}</span>
+        <span class="lang-en">{h.h1_3.en}</span>
+      </span>
     </h1>
 
     <!-- Subtext -->
@@ -51,9 +60,10 @@ const h = translations.hero;
         href="https://wa.me/50600000000?text=Hola!%20Quiero%20reservar%20un%20tour"
         target="_blank"
         rel="noopener noreferrer"
-        class="bg-[#1A9E75] text-white rounded-full px-6 py-3.5 font-body font-semibold text-sm tracking-wider uppercase inline-flex items-center gap-2 hover:bg-[#158a65] transition-colors"
+        class="bg-[#1A9E75] text-white rounded-full px-6 py-3.5 font-body font-semibold text-sm tracking-wider uppercase inline-flex items-center justify-center gap-2 hover:bg-[#158a65] transition-colors"
       >
-        Book Your Adventure
+        <span class="lang-es">{h.cta1.es}</span>
+        <span class="lang-en">{h.cta1.en}</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
       </a>
       <a
@@ -68,21 +78,30 @@ const h = translations.hero;
     <!-- Stats Bar -->
     <div class="mt-16 pt-10 border-t border-[#0B3D5E]/10 inline-flex gap-12 md:gap-16 justify-center" style="animation: fade-up 0.6s ease both; animation-delay: 1.0s;">
       <div class="text-center">
-        <span class="font-heading font-[800] text-4xl text-[#0B3D5E] block">500+</span>
+        <span class="font-heading font-[800] text-4xl text-[#0B3D5E] block">
+          <span class="lang-es">{h.stat1v.es}</span>
+          <span class="lang-en">{h.stat1v.en}</span>
+        </span>
         <span class="font-body font-light text-xs tracking-wide text-[#0B3D5E]/70 uppercase mt-1.5 block">
           <span class="lang-es">{h.stat1l.es}</span>
           <span class="lang-en">{h.stat1l.en}</span>
         </span>
       </div>
       <div class="text-center">
-        <span class="font-heading font-[800] text-4xl text-[#F5A623] block">5★</span>
+        <span class="font-heading font-[800] text-4xl text-[#F5A623] block">
+          <span class="lang-es">{h.stat2v.es}</span>
+          <span class="lang-en">{h.stat2v.en}</span>
+        </span>
         <span class="font-body font-light text-xs tracking-wide text-[#0B3D5E]/70 uppercase mt-1.5 block">
           <span class="lang-es">{h.stat2l.es}</span>
           <span class="lang-en">{h.stat2l.en}</span>
         </span>
       </div>
       <div class="text-center">
-        <span class="font-heading font-[800] text-4xl text-[#0B3D5E] block">3</span>
+        <span class="font-heading font-[800] text-4xl text-[#0B3D5E] block">
+          <span class="lang-es">{h.stat3v.es}</span>
+          <span class="lang-en">{h.stat3v.en}</span>
+        </span>
         <span class="font-body font-light text-xs tracking-wide text-[#0B3D5E]/70 uppercase mt-1.5 block">
           <span class="lang-es">{h.stat3l.es}</span>
           <span class="lang-en">{h.stat3l.en}</span>

@@ -127,6 +127,6 @@ const alts = [
   // Initial update
   updateWhatsappLinks();
 
-  // Re-run when language changes (if applicable)
-  window.addEventListener('languageChanged', updateWhatsappLinks);
+  // Re-run when language changes
+  window.addEventListener('lang-change', updateWhatsappLinks);
 </script>

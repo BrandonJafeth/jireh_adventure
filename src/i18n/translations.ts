@@ -4,19 +4,19 @@ export const translations = {
     tours:    { es: 'Tours',    en: 'Tours' },
     faq:      { es: 'FAQ',      en: 'FAQ' },
     contacto: { es: 'Contacto', en: 'Contact' },
-    cta:      { es: 'Book Now', en: 'Book Now' },
+    cta:      { es: 'Reservar', en: 'Book Now' },
   },
 
   // ── HERO ──
   hero: {
     badge1:  { es: '🌊 Guanacaste, Costa Rica', en: '🌊 Guanacaste, Costa Rica' },
     badge2:  { es: 'Aventura de nivel premium', en: 'Premium level adventure' },
-    h1_1:    { es: 'NOT JUST A TOUR.',   en: 'NOT JUST A TOUR.' },
-    h1_2:    { es: 'AN UNFORGETTABLE',   en: 'AN UNFORGETTABLE' },
-    h1_3:    { es: 'EXPERIENCE.',        en: 'EXPERIENCE.' },
+    h1_1:    { es: 'NO ES SOLO UN TOUR.',   en: 'NOT JUST A TOUR.' },
+    h1_2:    { es: 'UNA EXPERIENCIA',   en: 'AN UNFORGETTABLE' },
+    h1_3:    { es: 'INOLVIDABLE.',        en: 'EXPERIENCE.' },
     sub1:    { es: 'Jet Ski, ATV y más en las playas más increíbles de Costa Rica.', en: 'Jet Ski, ATV and more on the most incredible beaches of Costa Rica.' },
     sub2:    { es: 'Equipos de primera, guías profesionales, momentos que duran para siempre.', en: 'Top-notch gear, professional guides, moments that last forever.' },
-    cta1:    { es: 'Book Your Adventure', en: 'Book Your Adventure' },
+    cta1:    { es: 'Reserva tu aventura', en: 'Book Your Adventure' },
     cta2:    { es: 'Ver Todos los Tours', en: 'See All Tours' },
     stat1v:  { es: '500+', en: '500+' },
     stat1l:  { es: 'Aventureros Felices',  en: 'Happy Adventurers' },
@@ -157,8 +157,8 @@ export const translations = {
   // ── CTA + FOOTER ──
   cta: {
     eyebrow:  { es: '¿Listo para la aventura?', en: 'Ready for the adventure?' },
-    h2_1:     { es: 'Your next story',           en: 'Your next story' },
-    h2_2:     { es: 'starts in the ocean.',      en: 'starts in the ocean.' },
+    h2_1:     { es: 'Tu próxima historia',           en: 'Your next story' },
+    h2_2:     { es: 'comienza en el océano.',      en: 'starts in the ocean.' },
     sub1:     { es: 'Escribinos por WhatsApp y reservá tu lugar hoy.', en: 'Message us on WhatsApp and reserve your spot today.' },
     sub2:     { es: 'Los cupos son limitados.',   en: 'Spots are limited.' },
     btn1:     { es: 'Reservar por WhatsApp',      en: 'Book via WhatsApp' },
@@ -172,6 +172,15 @@ export const translations = {
     legal: { es: '© 2026 Jireh Adventure. Todos los derechos reservados.', en: '© 2026 Jireh Adventure. All rights reserved.' },
     tours: { es: 'Tours', en: 'Tours' },
     contacto: { es: 'Contacto', en: 'Contact' },
+  },
+  // ── GLOBAL / META ──
+  global: {
+    title: { es: 'Tours de Jet Ski y ATV Premium | Playa Flamingo y Conchal | Jireh Adventure', en: 'Premium Jet Ski & ATV Tours | Playa Flamingo & Conchal | Jireh Adventure' },
+    description: { es: 'Tours de Jet Ski y ATV de alta gama en Playa Flamingo, Playa Conchal y Brasilito, Costa Rica. Reserva tu aventura premium hoy.', en: 'High-end Jet Ski and ATV jungle tours in Playa Flamingo, Playa Conchal, and Brasilito, Costa Rica. Book your premium Guanacaste adventure today.' },
+  },
+  // ── WHATSAPP ──
+  whatsapp: {
+    message: { es: 'Hola! Quiero reservar un tour', en: 'Hello! I\'d like to book a tour' },
   },
 } as const;
 
