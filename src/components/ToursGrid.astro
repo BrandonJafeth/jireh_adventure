@@ -3,7 +3,7 @@
 import { translations } from '../i18n/translations';
 const tg = translations.toursGrid;
 
-const WHATSAPP_URL = 'https://wa.me/50600000000?text=Hola!%20Quiero%20reservar%20un%20tour';
+const PHONE = '50600000000'; // Placeholder - replace with real number
 
 const images = [
   'https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_800/v1777091645/ChatGPT_Image_24_abr_2026_22_33_54_ya2ubz.jpg',
@@ -88,9 +88,12 @@ const alts = [
                 )}
               </div>
               <a
-                href={WHATSAPP_URL}
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
+                data-whatsapp-btn
+                data-tour-es={card.title.es}
+                data-tour-en={card.title.en}
                 class="bg-white text-[#0B3D5E] shrink-0 rounded-full px-4 md:px-5 py-2.5 font-body font-bold text-[0.7rem] md:text-xs tracking-wider uppercase inline-flex items-center gap-1.5 hover:bg-[#1A9E75] hover:text-white transition-colors shadow-lg"
               >
                 <span class="lang-es">{card.button.es}</span>
@@ -105,3 +108,25 @@ const alts = [
     </div>
   </div>
 </section>
+
+<script define:vars={{ PHONE }}>
+  function updateWhatsappLinks() {
+    const lang = document.documentElement.lang || 'es';
+    const buttons = document.querySelectorAll('[data-whatsapp-btn]');
+    
+    buttons.forEach(btn => {
+      const tourName = lang === 'es' ? btn.getAttribute('data-tour-es') : btn.getAttribute('data-tour-en');
+      const message = lang === 'es' 
+        ? `¡Hola Jireh Adventure! Me gustaría reservar el tour: ${tourName}. ¿Podrían darme más información?`
+        : `Hi Jireh Adventure! I'd like to book the tour: ${tourName}. Could you give me more information?`;
+      
+      btn.href = `https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`;
+    });
+  }
+
+  // Initial update
+  updateWhatsappLinks();
+
+  // Re-run when language changes (if applicable)
+  window.addEventListener('languageChanged', updateWhatsappLinks);
+</script>
