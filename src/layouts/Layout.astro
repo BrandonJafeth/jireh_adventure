@@ -20,6 +20,16 @@ const {
     <link rel="icon" type="image/png" href="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091156/ChatGPT_Image_24_abr_2026_22_24_53_v7edc4.png" />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Language system — init as early as possible -->
+    <script is:inline>
+      (function() {
+        const STORAGE_KEY = 'jireh-lang';
+        const saved = localStorage.getItem(STORAGE_KEY) || 'en';
+        document.documentElement.setAttribute('data-lang', saved);
+        document.documentElement.lang = saved;
+      })();
+    </script>
+
     <!-- SEO & Meta Tags (Targeting US/Euro tourists) -->
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -86,15 +96,8 @@ const {
       requestAnimationFrame(raf)
     </script>
 
-    <!-- Language system — init before DOM renders -->
+    <!-- Language system — event listeners -->
     <script>
-      const STORAGE_KEY = 'jireh-lang'
-      // Default to English as target audience is US/Europe
-      const saved = localStorage.getItem(STORAGE_KEY) || 'en'
-      document.documentElement.setAttribute('data-lang', saved)
-      document.documentElement.lang = saved
-
-      // Listen for React-triggered changes
       window.addEventListener('lang-change', (e: Event) => {
         const lang = (e as CustomEvent).detail
         document.documentElement.setAttribute('data-lang', lang)
