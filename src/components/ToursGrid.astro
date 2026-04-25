@@ -12,7 +12,6 @@ const images = [
   'https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_800/v1777141514/ChatGPT_Image_25_abr_2026_12_24_54_dvjzkb.jpg',
 ];
 
-const accents = ['#1A9E75', '#1A9E75', '#0B3D5E', '#F5A623'];
 const alts = [
   'Jet ski en acción en aguas turquesas de Guanacaste',
   'Tour guiado en jet ski por la costa de Guanacaste',
@@ -36,51 +35,53 @@ const alts = [
     </div>
 
     <!-- Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
       {tg.cards.map((card, index) => (
-        <div class={`animate-on-scroll stagger-${index + 1} tour-card liquid-glass rounded-3xl overflow-hidden transition-all duration-300 hover:scale-[1.01]`}
-             style="will-change: transform;">
-          <!-- Image -->
-          <div class="relative overflow-hidden" style="aspect-ratio: 16/9;">
-            <img
-              src={images[index]}
-              alt={alts[index]}
-              width={800}
-              height={450}
-              loading="lazy"
-              decoding="async"
-              class="w-full h-full object-cover"
-            />
-            <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 60%, rgba(255,255,255,0.15) 100%);"></div>
-          </div>
+        <div class={`animate-on-scroll stagger-${index + 1} group relative rounded-[2rem] overflow-hidden transition-all duration-500 hover:-translate-y-1 shadow-xl hover:shadow-2xl flex flex-col`}
+             style="will-change: transform; min-height: 480px;">
+          
+          <!-- Full Background Image -->
+          <img
+            src={images[index]}
+            alt={alts[index]}
+            width={800}
+            height={800}
+            loading="lazy"
+            decoding="async"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          />
+          
+          <!-- Gradient Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0B3D5E]/95 via-[#0B3D5E]/60 to-transparent transition-opacity duration-300"></div>
 
-          <!-- Content -->
-          <div class="p-6 md:p-8">
-            <span
-              class="font-body font-semibold uppercase mb-2 block"
-              style={`font-size: 0.62rem; letter-spacing: 0.28em; color: ${accents[index]};`}
-            >
+          <!-- Content Wrapper (bottom aligned) -->
+          <div class="relative z-10 p-6 md:p-8 flex flex-col justify-end h-full">
+            <div class="mt-auto">
+              <span
+                class="font-body font-bold uppercase mb-2 block"
+                style={`font-size: 0.65rem; letter-spacing: 0.25em; color: ${index === 3 ? '#F5A623' : '#3AB8D8'}; text-shadow: 0 1px 2px rgba(0,0,0,0.5);`}
+              >
               <span class="lang-es">{card.eyebrow.es}</span>
               <span class="lang-en">{card.eyebrow.en}</span>
             </span>
-            <h3 class="font-heading font-[800] text-2xl md:text-3xl text-[#0B3D5E] leading-[0.95] mb-3">
+            <h3 class="font-heading font-[800] text-3xl md:text-4xl text-white leading-[0.95] mb-3 drop-shadow-md">
               <span class="lang-es">{card.title.es}</span>
               <span class="lang-en">{card.title.en}</span>
             </h3>
-            <p class="font-body font-light text-sm text-[#0B3D5E]/70 leading-relaxed mb-5">
+            <p class="font-body font-light text-sm md:text-base text-white/85 leading-relaxed mb-6">
               <span class="lang-es">{card.text.es}</span>
               <span class="lang-en">{card.text.en}</span>
             </p>
 
             <!-- Footer -->
-            <div class="flex justify-between items-center">
+            <div class="flex justify-between items-center pt-5 border-t border-white/20 mt-6">
               <div class="flex items-center gap-2">
-                <span class="bg-[#F5A623]/15 text-[#B8720A] rounded-full px-3 py-1 text-xs font-semibold font-body">
+                <span class="bg-black/30 backdrop-blur-md text-white border border-white/20 rounded-full px-3 py-1.5 text-[0.7rem] md:text-xs font-semibold font-body tracking-wide">
                   <span class="lang-es">{card.price.es}</span>
                   <span class="lang-en">{card.price.en}</span>
                 </span>
                 {card.extra.es && (
-                  <span class="bg-[#1A9E75]/10 text-[#1A9E75] rounded-full px-3 py-1 text-xs font-semibold font-body">
+                  <span class="bg-[#1A9E75]/90 text-white rounded-full px-3 py-1.5 text-[0.7rem] md:text-xs font-semibold font-body tracking-wide">
                     <span class="lang-es">{card.extra.es}</span>
                     <span class="lang-en">{card.extra.en}</span>
                   </span>
@@ -90,22 +91,17 @@ const alts = [
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="liquid-glass-strong rounded-full px-4 py-2 font-body font-semibold text-xs tracking-wider uppercase text-[#0B3D5E] inline-flex items-center gap-1.5 hover:bg-white/80 transition-colors"
+                class="bg-white text-[#0B3D5E] shrink-0 rounded-full px-4 md:px-5 py-2.5 font-body font-bold text-[0.7rem] md:text-xs tracking-wider uppercase inline-flex items-center gap-1.5 hover:bg-[#1A9E75] hover:text-white transition-colors shadow-lg"
               >
                 <span class="lang-es">{card.button.es}</span>
                 <span class="lang-en">{card.button.en}</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
               </a>
             </div>
           </div>
         </div>
+      </div>
       ))}
     </div>
   </div>
 </section>
-
-<style>
-  .tour-card:hover {
-    box-shadow: 0 8px 32px rgba(11,61,94,0.10);
-  }
-</style>
