@@ -85,7 +85,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="bg-[#1A9E75] text-white rounded-full px-4 py-2 font-body font-semibold text-xs tracking-wider uppercase inline-flex items-center gap-1.5 hover:bg-[#158a65] transition-colors"
           >
-            Book Now
+            {t(translations.nav.cta, lang)}
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
           <button
