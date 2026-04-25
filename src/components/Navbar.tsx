@@ -39,7 +39,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="/" className="flex items-center gap-3 shrink-0" aria-label="Jireh Adventure Home">
           <img
-            src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091156/ChatGPT_Image_24_abr_2026_22_24_53_v7edc4.png"
+            src="https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_80/v1777091156/ChatGPT_Image_24_abr_2026_22_24_53_v7edc4.png"
             alt="Jireh Adventure Logo"
             width={40}
             height={40}

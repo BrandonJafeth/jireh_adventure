@@ -7,7 +7,12 @@ const h = translations.hero;
 <section id="hero" class="hero-section">
   <!-- Static Image Background (LCP Optimized) -->
   <img
-    src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777137161/pexels-asadphoto-1430675_obuwlc.jpg"
+    srcset="
+      https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_800/v1777137161/pexels-asadphoto-1430675_obuwlc.jpg 800w,
+      https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_1920/v1777137161/pexels-asadphoto-1430675_obuwlc.jpg 1920w
+    "
+    sizes="100vw"
+    src="https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_1920/v1777137161/pexels-asadphoto-1430675_obuwlc.jpg"
     alt="Jireh Adventure"
     class="hero-image absolute inset-0 w-full h-full object-cover object-center z-0"
     loading="eager"
