@@ -33,7 +33,7 @@ export default function Navbar() {
     >
       <div
         className={`max-w-7xl mx-auto flex items-center justify-between py-3 px-4 md:px-6 rounded-full transition-all duration-500 ${
-          scrolled ? 'liquid-glass-strong' : ''
+          scrolled ? 'liquid-glass-strong shadow-xl' : ''
         }`}
       >
         {/* Logo */}
