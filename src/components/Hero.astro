@@ -16,8 +16,8 @@ const h = translations.hero;
   />
 
   <!-- Overlays -->
-  <!-- Capa 1: Tono general -->
-  <div class="absolute inset-0 z-10" style="background: linear-gradient(160deg, rgba(247,243,238,0.30) 0%, rgba(11,61,94,0.15) 100%)"></div>
+  <!-- Capa 1: Tono general (más opacidad blanca para legibilidad sin sombras) -->
+  <div class="absolute inset-0 z-10" style="background: linear-gradient(160deg, rgba(247,243,238,0.55) 0%, rgba(11,61,94,0.15) 100%)"></div>
   <!-- Capa 2: Fade bottom hacia background -->
   <div class="absolute bottom-0 left-0 right-0 h-[40%] z-10" style="background: linear-gradient(to bottom, transparent, hsl(36 33% 95%))"></div>
 
@@ -35,7 +35,7 @@ const h = translations.hero;
     </h1>
 
     <!-- Subtext -->
-    <p class="font-body font-light text-base md:text-lg text-[#0B3D5E]/65 leading-relaxed max-w-xl mx-auto mt-8" style="animation: fade-up 0.6s ease both; animation-delay: 0.6s;">
+    <p class="font-body font-light text-base md:text-lg text-[#0B3D5E]/85 leading-relaxed max-w-xl mx-auto mt-8" style="animation: fade-up 0.6s ease both; animation-delay: 0.6s;">
       <span class="lang-es">{h.sub1.es}<br />{h.sub2.es}</span>
       <span class="lang-en">{h.sub1.en}<br />{h.sub2.en}</span>
     </p>
@@ -64,21 +64,21 @@ const h = translations.hero;
     <div class="mt-16 pt-10 border-t border-[#0B3D5E]/10 inline-flex gap-12 md:gap-16 justify-center" style="animation: fade-up 0.6s ease both; animation-delay: 1.0s;">
       <div class="text-center">
         <span class="font-heading font-[800] text-4xl text-[#0B3D5E] block">500+</span>
-        <span class="font-body font-light text-xs tracking-wide text-[#0B3D5E]/40 uppercase mt-1.5 block">
+        <span class="font-body font-light text-xs tracking-wide text-[#0B3D5E]/70 uppercase mt-1.5 block">
           <span class="lang-es">{h.stat1l.es}</span>
           <span class="lang-en">{h.stat1l.en}</span>
         </span>
       </div>
       <div class="text-center">
         <span class="font-heading font-[800] text-4xl text-[#F5A623] block">5★</span>
-        <span class="font-body font-light text-xs tracking-wide text-[#0B3D5E]/40 uppercase mt-1.5 block">
+        <span class="font-body font-light text-xs tracking-wide text-[#0B3D5E]/70 uppercase mt-1.5 block">
           <span class="lang-es">{h.stat2l.es}</span>
           <span class="lang-en">{h.stat2l.en}</span>
         </span>
       </div>
       <div class="text-center">
         <span class="font-heading font-[800] text-4xl text-[#0B3D5E] block">3</span>
-        <span class="font-body font-light text-xs tracking-wide text-[#0B3D5E]/40 uppercase mt-1.5 block">
+        <span class="font-body font-light text-xs tracking-wide text-[#0B3D5E]/70 uppercase mt-1.5 block">
           <span class="lang-es">{h.stat3l.es}</span>
           <span class="lang-en">{h.stat3l.en}</span>
         </span>
