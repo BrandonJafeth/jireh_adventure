@@ -157,3 +157,33 @@ html.lenis body {
    ═══════════════════════════════════════ */
 [data-lang="es"] .lang-en { display: none !important; }
 [data-lang="en"] .lang-es { display: none !important; }
+
+/* ═══════════════════════════════════════
+   CUSTOM SCROLLBAR — NATIVE CSS
+   ═══════════════════════════════════════ */
+@layer base {
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F7F3EE;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #0B3D5E;
+    border-radius: 100px;
+    border: 3px solid #F7F3EE;
+    transition: all 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1A9E75;
+  }
+
+  /* Firefox support */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #0B3D5E #F7F3EE;
+  }
+}
