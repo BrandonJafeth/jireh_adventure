@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════
+   FONTSOURCE — Self-hosted fonts, zero external requests
+   ═══════════════════════════════════════ */
+@import '@fontsource/barlow-condensed/700.css';
+@import '@fontsource/barlow-condensed/800.css';
+@import '@fontsource/barlow-condensed/900.css';
+@import '@fontsource/barlow/300.css';
+@import '@fontsource/barlow/400.css';
+@import '@fontsource/barlow/500.css';
+@import '@fontsource/barlow/600.css';
+
+/* ═══════════════════════════════════════
+   TAILWIND v4 THEME TOKENS
+   ═══════════════════════════════════════ */
+@theme {
+  --font-heading: "Barlow Condensed", sans-serif;
+  --font-body: "Barlow", sans-serif;
+}
+
+/* ═══════════════════════════════════════
+   CSS CUSTOM PROPERTIES — LIGHT MODE
+   ═══════════════════════════════════════ */
+:root {
+  --background:           36 33% 95%;
+  --foreground:           207 78% 21%;
+  --card:                 0 0% 100%;
+  --card-foreground:      207 78% 21%;
+  --primary:              207 78% 21%;
+  --primary-foreground:   36 33% 95%;
+  --secondary:            0 0% 100%;
+  --secondary-foreground: 207 78% 21%;
+  --muted:                36 20% 92%;
+  --muted-foreground:     207 30% 40%;
+  --accent:               161 71% 36%;
+  --accent-foreground:    0 0% 100%;
+  --accent-2:             207 78% 21%;
+  --accent-gold:          37 91% 55%;
+  --border:               207 30% 21% / 0.10;
+  --input:                207 30% 21% / 0.08;
+  --ring:                 161 71% 36% / 0.30;
+  --radius:               9999px;
+  --glass-bg:             rgba(255,255,255,0.62);
+  --glass-border:         rgba(255,255,255,0.80);
+  --glass-blur:           20px;
+}
+
+/* ═══════════════════════════════════════
+   GLOBAL BASE STYLES
+   ═══════════════════════════════════════ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #F7F3EE;
+  color: #0B3D5E;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Lenis smooth scroll overrides */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════
+   LIQUID GLASS COMPONENTS
+   ═══════════════════════════════════════ */
+@layer components {
+  .liquid-glass {
+    background: rgba(255,255,255,0.62);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255,255,255,0.78);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.04),
+                inset 0 1px 0 rgba(255,255,255,0.90);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .liquid-glass-strong {
+    background: rgba(255,255,255,0.82);
+    backdrop-filter: blur(40px) saturate(200%);
+    -webkit-backdrop-filter: blur(40px) saturate(200%);
+    border: 1px solid rgba(255,255,255,0.92);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07), 0 8px 32px rgba(0,0,0,0.05),
+                inset 0 1px 0 rgba(255,255,255,1);
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+/* ═══════════════════════════════════════
+   KEYFRAME ANIMATIONS
+   ═══════════════════════════════════════ */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-line {
+  0% {
+    transform: translateY(-100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(300%);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.09; }
+  50% { opacity: 0.14; }
+}
+
+/* ═══════════════════════════════════════
+   SCROLL-TRIGGERED ANIMATION UTILITIES
+   ═══════════════════════════════════════ */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.animate-on-scroll.is-visible {
+  animation: fade-up 0.6s ease both;
+}
+
+/* Stagger delays for child items */
+.stagger-1 { animation-delay: 0s !important; }
+.stagger-2 { animation-delay: 0.10s !important; }
+.stagger-3 { animation-delay: 0.20s !important; }
+.stagger-4 { animation-delay: 0.30s !important; }
+
+/* ═══════════════════════════════════════
+   i18n — LANGUAGE TOGGLE VISIBILITY
+   ═══════════════════════════════════════ */
+[data-lang="es"] .lang-en { display: none !important; }
+[data-lang="en"] .lang-es { display: none !important; }

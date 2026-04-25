@@ -1,0 +1,77 @@
+---
+// FeaturesAlternadas.astro — Pure Astro, CSS-only scroll animations, i18n
+import { translations } from '../i18n/translations';
+const fa = translations.featuresAlt;
+
+const images = [
+  'https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091434/ChatGPT_Image_24_abr_2026_22_29_56_tctsay.jpg',
+  'https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091548/Captura_de_pantalla_2026-04-24_223154_y6hrey.jpg'
+];
+---
+
+<section id="features" class="py-24 md:py-32 bg-white overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col gap-24 md:gap-32">
+    
+    {fa.blocks.map((block, index) => {
+      const isReversed = index % 2 !== 0;
+      
+      return (
+        <div class={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-10 md:gap-16 lg:gap-20`}>
+          
+          {/* Image Side */}
+          <div class={`w-full md:w-1/2 relative animate-on-scroll ${isReversed ? 'stagger-2' : 'stagger-1'}`}>
+            <div class="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+              <img
+                src={images[index]}
+                alt={isReversed ? "ATV Tour in Guanacaste" : "Jet Ski Tour in Guanacaste"}
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover"
+              />
+              <div class="absolute inset-0 border border-white/20 rounded-3xl pointer-events-none"></div>
+            </div>
+            {/* Decorative background blob */}
+            <div 
+              class={`absolute top-1/2 -translate-y-1/2 w-[120%] h-[120%] rounded-full opacity-[0.04] blur-3xl -z-10 pointer-events-none
+              ${isReversed ? 'bg-[#0B3D5E] -right-[20%]' : 'bg-[#1A9E75] -left-[20%]'}`}
+            ></div>
+          </div>
+
+          {/* Content Side */}
+          <div class={`w-full md:w-1/2 animate-on-scroll ${isReversed ? 'stagger-1' : 'stagger-2'}`}>
+            <span class={`font-body font-semibold text-[0.62rem] tracking-[0.28em] uppercase block mb-4 ${isReversed ? 'text-[#0B3D5E]' : 'text-[#1A9E75]'}`}>
+              <span class="lang-es">{block.eyebrow.es}</span>
+              <span class="lang-en">{block.eyebrow.en}</span>
+            </span>
+            
+            <h2 class="font-heading font-[800] text-3xl md:text-4xl lg:text-5xl text-[#0B3D5E] uppercase leading-[0.95] tracking-[0.02em] mb-6">
+              <span class="lang-es">{block.title.es}</span>
+              <span class="lang-en">{block.title.en}</span>
+            </h2>
+            
+            <p class="font-body font-light text-base md:text-lg text-[#0B3D5E]/70 leading-relaxed mb-8">
+              <span class="lang-es">{block.text.es}</span>
+              <span class="lang-en">{block.text.en}</span>
+            </p>
+
+            <ul class="space-y-4">
+              {block.points.map((point) => (
+                <li class="flex items-center gap-3">
+                  <div class={`shrink-0 w-6 h-6 rounded-full flex items-center justify-center ${isReversed ? 'bg-[#0B3D5E]/10 text-[#0B3D5E]' : 'bg-[#1A9E75]/10 text-[#1A9E75]'}`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <span class="font-body font-medium text-sm text-[#0B3D5E]/80">
+                    <span class="lang-es">{point.es}</span>
+                    <span class="lang-en">{point.en}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </div>
+      );
+    })}
+
+  </div>
+</section>

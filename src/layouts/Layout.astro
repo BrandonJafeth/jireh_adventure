@@ -1,0 +1,120 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Premium Jet Ski & ATV Tours | Playa Flamingo & Conchal | Jireh Adventure',
+  description = 'High-end Jet Ski and ATV jungle tours in Playa Flamingo, Playa Conchal, and Brasilito, Costa Rica. Book your premium Guanacaste adventure today.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO & Meta Tags (Targeting US/Euro tourists) -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="jet ski rental playa flamingo, atv tours playa conchal, zip line guanacaste, costa rica adventure tours, things to do in flamingo beach, premium jet ski costa rica, atv jungle tour brasilito" />
+    <meta name="author" content="Jireh Adventure" />
+    <link rel="canonical" href={Astro.url.href} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Jireh Adventure" />
+    <meta property="og:image" content="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091645/ChatGPT_Image_24_abr_2026_22_33_54_ya2ubz.jpg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={Astro.url.href} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091645/ChatGPT_Image_24_abr_2026_22_33_54_ya2ubz.jpg" />
+
+    <!-- Structured Data (LocalBusiness) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TouristAttraction",
+        "name": "Jireh Adventure",
+        "image": "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091645/ChatGPT_Image_24_abr_2026_22_33_54_ya2ubz.jpg",
+        "description": "Premium Jet Ski and ATV tours in Playa Flamingo, Playa Conchal, and Brasilito, Costa Rica.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Playa Flamingo, Guanacaste",
+          "addressCountry": "CR"
+        },
+        "priceRange": "$$$"
+      }
+    </script>
+  </head>
+  <body>
+    <slot />
+
+    <!-- Lenis Smooth Scroll — single global instance -->
+    <script>
+      import Lenis from 'lenis'
+
+      const lenis = new Lenis({
+        duration: 1.4,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        wheelMultiplier: 0.9,
+      })
+
+      ;(window as any).__lenis = lenis
+
+      function raf(time: number) {
+        lenis.raf(time)
+        requestAnimationFrame(raf)
+      }
+      requestAnimationFrame(raf)
+    </script>
+
+    <!-- Language system — init before DOM renders -->
+    <script>
+      const STORAGE_KEY = 'jireh-lang'
+      // Default to English as target audience is US/Europe
+      const saved = localStorage.getItem(STORAGE_KEY) || 'en'
+      document.documentElement.setAttribute('data-lang', saved)
+      document.documentElement.lang = saved
+
+      // Listen for React-triggered changes
+      window.addEventListener('lang-change', (e: Event) => {
+        const lang = (e as CustomEvent).detail
+        document.documentElement.setAttribute('data-lang', lang)
+        document.documentElement.lang = lang
+      })
+    </script>
+
+    <!-- Scroll-triggered animations for Astro components -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible')
+              observer.unobserve(entry.target)
+            }
+          })
+        },
+        { threshold: 0.1, rootMargin: '-40px' }
+      )
+
+      document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+        observer.observe(el)
+      })
+    </script>
+  </body>
+</html>

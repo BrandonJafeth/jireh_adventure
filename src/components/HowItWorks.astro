@@ -1,0 +1,84 @@
+---
+// HowItWorks.astro — Pure Astro, CSS-only scroll animations, i18n
+import { translations } from '../i18n/translations';
+const hw = translations.howItWorks;
+
+const icons = ['compass', 'message', 'sun', 'camera'];
+const numbers = ['01', '02', '03', '04'];
+---
+
+<section id="como-funciona" class="py-24 md:py-32 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="font-heading font-[800] text-4xl md:text-5xl lg:text-6xl text-[#0B3D5E] uppercase leading-[0.95] tracking-[0.02em] mb-4 animate-on-scroll stagger-2">
+        <span class="lang-es">{hw.heading.es}</span>
+        <span class="lang-en">{hw.heading.en}</span>
+      </h2>
+      <p class="font-body font-light text-base md:text-lg text-[#0B3D5E]/70 leading-relaxed animate-on-scroll stagger-3">
+        <span class="lang-es">{hw.sub.es}</span>
+        <span class="lang-en">{hw.sub.en}</span>
+      </p>
+    </div>
+
+    <!-- Steps Grid -->
+    <div class="flex flex-col gap-10 md:grid md:grid-cols-2 lg:grid-cols-4 md:gap-8 relative">
+      {hw.steps.map((step, index) => (
+        <div class={`animate-on-scroll stagger-${index + 1} group relative`}>
+          
+          <!-- DESKTOP TOP BAR: Number + Horizontal Line -->
+          <div class="hidden md:flex items-center gap-3 mb-5">
+            <span class="font-heading font-[900] text-5xl text-[#1A9E75]/30 leading-none">{numbers[index]}</span>
+            {index < 3 && (
+              <div class="hidden lg:block flex-1 h-px bg-[#0B3D5E]/18"></div>
+            )}
+          </div>
+
+          <!-- MAIN COMPONENT: Row on mobile, Col on desktop -->
+          <div class="flex flex-row md:flex-col items-start gap-4 md:gap-0 relative">
+            
+            <!-- Left Side / Top Side -->
+            <div class="shrink-0 flex flex-col items-center relative z-10 w-12 md:w-auto">
+              <!-- Mobile Number -->
+              <span class="md:hidden font-heading font-[900] text-4xl text-[#1A9E75]/20 leading-none mb-2">{numbers[index]}</span>
+              
+              <!-- Icon -->
+              <div class="w-12 h-12 rounded-2xl bg-[#1A9E75]/10 flex items-center justify-center mb-0 md:mb-4 group-hover:bg-[#1A9E75]/25 transition-colors ring-4 ring-white md:ring-0">
+                {icons[index] === 'compass' && (
+                  <svg class="w-5 h-5 text-[#1A9E75]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 13.5L9 17l1.5-6.5L17 9l-1.5 6.5z"/></svg>
+                )}
+                {icons[index] === 'message' && (
+                  <svg class="w-5 h-5 text-[#1A9E75]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                )}
+                {icons[index] === 'sun' && (
+                  <svg class="w-5 h-5 text-[#1A9E75]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                )}
+                {icons[index] === 'camera' && (
+                  <svg class="w-5 h-5 text-[#1A9E75]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                )}
+              </div>
+
+              <!-- Mobile Vertical Line Stepper -->
+              {index < 3 && (
+                <div class="md:hidden absolute top-[90px] bottom-[-40px] left-1/2 -translate-x-1/2 w-0.5 bg-gradient-to-b from-[#1A9E75]/30 to-transparent -z-10"></div>
+              )}
+            </div>
+
+            <!-- Right Side / Content Side -->
+            <div class="pt-2 md:pt-0 flex-1 min-w-0">
+              <h3 class="font-heading font-[800] text-xl md:text-2xl text-[#0B3D5E] uppercase leading-none md:leading-tight mb-3">
+                <span class="lang-es">{step.title.es}</span>
+                <span class="lang-en">{step.title.en}</span>
+              </h3>
+              <p class="font-body font-normal text-sm text-[#0B3D5E]/80 leading-relaxed">
+                <span class="lang-es">{step.text.es}</span>
+                <span class="lang-en">{step.text.en}</span>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,111 @@
+---
+// ToursGrid.astro — Pure Astro, i18n with lang-es/lang-en spans
+import { translations } from '../i18n/translations';
+const tg = translations.toursGrid;
+
+const WHATSAPP_URL = 'https://wa.me/50600000000?text=Hola!%20Quiero%20reservar%20un%20tour';
+
+const images = [
+  'https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091366/Captura_de_pantalla_2026-04-24_222906_ohlqq7.jpg',
+  'https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091434/ChatGPT_Image_24_abr_2026_22_29_56_tctsay.jpg',
+  'https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091548/Captura_de_pantalla_2026-04-24_223154_y6hrey.jpg',
+  'https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091645/ChatGPT_Image_24_abr_2026_22_33_54_ya2ubz.jpg',
+];
+
+const accents = ['#1A9E75', '#1A9E75', '#0B3D5E', '#F5A623'];
+const alts = [
+  'Jet ski en acción en aguas turquesas de Guanacaste',
+  'Tour guiado en jet ski por la costa de Guanacaste',
+  'ATV recorriendo rutas de jungla y montaña en Costa Rica',
+  'Vista épica de playa y aventura combinada en Guanacaste',
+];
+---
+
+<section id="tours" class="py-24 md:py-32 bg-[#F7F3EE]">
+  <div class="max-w-6xl mx-auto px-6">
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="font-heading font-[800] text-4xl md:text-5xl lg:text-6xl text-[#0B3D5E] uppercase leading-[0.95] tracking-[0.02em] mb-4 animate-on-scroll stagger-2">
+        <span class="lang-es">{tg.heading.es}</span>
+        <span class="lang-en">{tg.heading.en}</span>
+      </h2>
+      <p class="font-body font-light text-base md:text-lg text-[#0B3D5E]/70 leading-relaxed animate-on-scroll stagger-3">
+        <span class="lang-es">{tg.sub.es}</span>
+        <span class="lang-en">{tg.sub.en}</span>
+      </p>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {tg.cards.map((card, index) => (
+        <div class={`animate-on-scroll stagger-${index + 1} tour-card liquid-glass rounded-3xl overflow-hidden transition-all duration-300 hover:scale-[1.01]`}
+             style="will-change: transform;">
+          <!-- Image -->
+          <div class="relative overflow-hidden" style="aspect-ratio: 16/9;">
+            <img
+              src={images[index]}
+              alt={alts[index]}
+              width={800}
+              height={450}
+              loading="lazy"
+              decoding="async"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 60%, rgba(255,255,255,0.15) 100%);"></div>
+          </div>
+
+          <!-- Content -->
+          <div class="p-6 md:p-8">
+            <span
+              class="font-body font-semibold uppercase mb-2 block"
+              style={`font-size: 0.62rem; letter-spacing: 0.28em; color: ${accents[index]};`}
+            >
+              <span class="lang-es">{card.eyebrow.es}</span>
+              <span class="lang-en">{card.eyebrow.en}</span>
+            </span>
+            <h3 class="font-heading font-[800] text-2xl md:text-3xl text-[#0B3D5E] leading-[0.95] mb-3">
+              <span class="lang-es">{card.title.es}</span>
+              <span class="lang-en">{card.title.en}</span>
+            </h3>
+            <p class="font-body font-light text-sm text-[#0B3D5E]/70 leading-relaxed mb-5">
+              <span class="lang-es">{card.text.es}</span>
+              <span class="lang-en">{card.text.en}</span>
+            </p>
+
+            <!-- Footer -->
+            <div class="flex justify-between items-center">
+              <div class="flex items-center gap-2">
+                <span class="bg-[#F5A623]/15 text-[#B8720A] rounded-full px-3 py-1 text-xs font-semibold font-body">
+                  <span class="lang-es">{card.price.es}</span>
+                  <span class="lang-en">{card.price.en}</span>
+                </span>
+                {card.extra.es && (
+                  <span class="bg-[#1A9E75]/10 text-[#1A9E75] rounded-full px-3 py-1 text-xs font-semibold font-body">
+                    <span class="lang-es">{card.extra.es}</span>
+                    <span class="lang-en">{card.extra.en}</span>
+                  </span>
+                )}
+              </div>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="liquid-glass-strong rounded-full px-4 py-2 font-body font-semibold text-xs tracking-wider uppercase text-[#0B3D5E] inline-flex items-center gap-1.5 hover:bg-white/80 transition-colors"
+              >
+                <span class="lang-es">{card.button.es}</span>
+                <span class="lang-en">{card.button.en}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tour-card:hover {
+    box-shadow: 0 8px 32px rgba(11,61,94,0.10);
+  }
+</style>

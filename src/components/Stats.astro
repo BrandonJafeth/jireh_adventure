@@ -1,0 +1,42 @@
+---
+// Stats.astro — Pure Astro, background image with overlay, i18n
+import { translations } from '../i18n/translations';
+const st = translations.stats;
+---
+
+<section id="stats" class="relative py-24 md:py-32 overflow-hidden">
+  <!-- Background Image -->
+  <img
+    src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091645/ChatGPT_Image_24_abr_2026_22_33_54_ya2ubz.jpg"
+    alt="Vista aérea de playa y aventura en Guanacaste"
+    width={1920}
+    height={600}
+    loading="lazy"
+    decoding="async"
+    class="absolute inset-0 w-full h-full object-cover object-center md:object-[center_65%]"
+  />
+
+  <!-- Mobile flat overlay (original) / Premium frosted glass overlay (desktop) -->
+  <div class="absolute inset-0 bg-white/55 md:bg-transparent md:bg-gradient-to-b md:from-white/80 md:via-white/60 md:to-white/90 md:backdrop-blur-sm"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+      {st.items.map((stat, index) => (
+        <div class={`text-center animate-on-scroll stagger-${index + 1}`}>
+          <span
+            class={`font-heading font-[800] text-5xl md:text-6xl lg:text-7xl block leading-none ${
+              stat.value === '5★' ? 'text-[#F5A623]' : 'text-[#0B3D5E]'
+            }`}
+          >
+            {stat.value}
+          </span>
+          <span class="font-body font-light md:font-semibold text-xs md:text-sm tracking-wide md:tracking-[0.1em] text-[#0B3D5E]/65 md:text-[#0B3D5E]/90 uppercase mt-3 md:mt-4 block">
+            <span class="lang-es">{stat.label.es}</span>
+            <span class="lang-en">{stat.label.en}</span>
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

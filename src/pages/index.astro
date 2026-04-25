@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.tsx';
+import Hero from '../components/Hero.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import FeaturesAlternadas from '../components/FeaturesAlternadas.astro';
+import ToursGrid from '../components/ToursGrid.astro';
+import Stats from '../components/Stats.astro';
+import FAQ from '../components/FAQ.tsx';
+import CTAFooter from '../components/CTAFooter.astro';
+---
+
+<Layout>
+  <Navbar client:load />
+  <Hero />
+  <HowItWorks />
+  <FeaturesAlternadas />
+  <ToursGrid />
+  <Stats />
+  <FAQ client:visible />
+  <CTAFooter />
+</Layout>

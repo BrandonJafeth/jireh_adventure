@@ -1,0 +1,157 @@
+---
+// CTAFooter.astro — Pure Astro, i18n
+import { translations } from '../i18n/translations';
+const c = translations.cta;
+const f = translations.footer;
+
+const WHATSAPP_URL = 'https://wa.me/50600000000?text=Hola!%20Quiero%20reservar%20un%20tour';
+---
+
+<section class="relative bg-[#0B3D5E] py-24 md:py-32 overflow-hidden border-b border-white/10">
+  <!-- Decorative Blobs -->
+  <div class="absolute w-[800px] h-[500px] bg-[#1A9E75] rounded-full opacity-[0.08] blur-[100px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+
+  <div class="relative z-10 max-w-3xl mx-auto px-6 text-center">
+    <!-- Eyebrow -->
+    <span class="font-body font-medium text-xs tracking-wider uppercase text-white/55 mb-4 block animate-on-scroll stagger-1">
+      <span class="lang-es">{c.eyebrow.es}</span>
+      <span class="lang-en">{c.eyebrow.en}</span>
+    </span>
+
+    <!-- Heading -->
+    <h2 class="font-heading font-[900] text-5xl md:text-6xl lg:text-7xl text-white uppercase leading-[0.92] tracking-[0.02em] mb-6 animate-on-scroll stagger-2">
+      <span class="lang-es">{c.h2_1.es}</span><span class="lang-en">{c.h2_1.en}</span><br />
+      <span class="text-[#1A9E75]"><span class="lang-es">{c.h2_2.es}</span><span class="lang-en">{c.h2_2.en}</span></span>
+    </h2>
+
+    <!-- Subtext -->
+    <p class="font-body font-light text-base md:text-lg text-white/65 leading-relaxed max-w-lg mx-auto mb-10 animate-on-scroll stagger-3">
+      <span class="lang-es">{c.sub1.es}<br />{c.sub2.es}</span>
+      <span class="lang-en">{c.sub1.en}<br />{c.sub2.en}</span>
+    </p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 animate-on-scroll stagger-4">
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full sm:w-auto bg-[#1A9E75] text-white rounded-full px-6 py-3.5 font-body font-semibold text-sm tracking-wider uppercase inline-flex items-center justify-center gap-2 hover:bg-[#158a65] transition-colors"
+      >
+        <span class="lang-es">{c.btn1.es}</span>
+        <span class="lang-en">{c.btn1.en}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+      </a>
+      <a
+        href="#tours"
+        class="w-full sm:w-auto liquid-glass-strong rounded-full px-6 py-3.5 border border-white/90 font-body font-semibold text-sm tracking-wider uppercase text-[#0B3D5E] hover:bg-white transition-colors text-center shadow-lg"
+      >
+        <span class="lang-es">{c.btn2.es}</span>
+        <span class="lang-en">{c.btn2.en}</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Expanded Footer -->
+<footer class="bg-[#042135] pt-16 pb-8 border-t border-white/10">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <!-- Top Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+      <!-- Brand -->
+      <div class="md:col-span-5">
+        <a href="/" class="flex items-center gap-3 mb-4 inline-flex">
+          <img
+            src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091156/ChatGPT_Image_24_abr_2026_22_24_53_v7edc4.png"
+            alt="Jireh Adventure Logo"
+            width={32}
+            height={32}
+            class="h-8 w-8 object-contain rounded-full"
+            loading="lazy"
+          />
+          <span class="font-heading font-[800] text-lg tracking-widest uppercase text-white">
+            <span class="text-white">JIREH </span>
+            <span class="text-[#1A9E75]">ADVENTURE</span>
+          </span>
+        </a>
+        <p class="font-body font-light text-sm text-white/50 leading-relaxed max-w-xs">
+          <span class="lang-es">{f.desc.es}</span>
+          <span class="lang-en">{f.desc.en}</span>
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div class="md:col-span-4">
+        <h3 class="font-heading font-[800] text-sm uppercase tracking-wider text-white mb-4">
+          <span class="lang-es">{f.contact.es}</span>
+          <span class="lang-en">{f.contact.en}</span>
+        </h3>
+        <ul class="space-y-3 font-body font-light text-sm text-white/60">
+          <li>
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors inline-flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              WhatsApp (+506) 0000-0000
+            </a>
+          </li>
+          <li>
+            <a href="mailto:info@jirehadventure.com" class="hover:text-white transition-colors inline-flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              info@jirehadventure.com
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Location -->
+      <div class="md:col-span-3">
+        <h3 class="font-heading font-[800] text-sm uppercase tracking-wider text-white mb-4">
+          <span class="lang-es">{f.location.es}</span>
+          <span class="lang-en">{f.location.en}</span>
+        </h3>
+        <ul class="space-y-2 font-body font-light text-sm text-white/60">
+          <li class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#1A9E75]/50"></span>
+            Playa Flamingo
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#1A9E75]/50"></span>
+            Playa Conchal
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#1A9E75]/50"></span>
+            Brasilito
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="font-body font-light text-xs text-white/40">
+        <span class="lang-es">{f.legal.es}</span>
+        <span class="lang-en">{f.legal.en}</span>
+      </p>
+
+      <div class="flex items-center gap-6">
+        <a href="#tours" class="font-body font-medium text-[0.65rem] text-white/40 hover:text-white transition-colors tracking-widest uppercase">
+          <span class="lang-es">{f.tours.es}</span><span class="lang-en">{f.tours.en}</span>
+        </a>
+        <a href="#contacto" class="font-body font-medium text-[0.65rem] text-white/40 hover:text-white transition-colors tracking-widest uppercase">
+          <span class="lang-es">{f.contacto.es}</span><span class="lang-en">{f.contacto.en}</span>
+        </a>
+      </div>
+
+      <!-- Back to top -->
+      <a
+        href="#hero"
+        class="font-body font-medium text-[0.65rem] text-white/30 hover:text-white transition-colors tracking-widest uppercase flex items-center gap-1"
+        aria-label="Volver arriba"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+        Top
+      </a>
+    </div>
+
+  </div>
+</footer>
