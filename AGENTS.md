@@ -50,7 +50,8 @@ PESOS DEL BODY:   300, 400, 500, 600
 LOGO:          [ Imagen: https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091156/ChatGPT_Image_24_abr_2026_22_24_53_v7edc4.png ]
                (logo circular con palmera y ATV sobre olas — usar en navbar con altura 40px)
 
-HERO FONDO:    [ Gradiente CSS ]   ← sin imágenes, fondo generativo con blobs y patrón de puntos
+HERO FONDO:    [ Imagen: https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777137161/pexels-asadphoto-1430675_obuwlc.jpg ]
+HERO POSTER:   (vacío — imagen estática, no aplica)
 
 IMAGEN CARD JET SKI (Features Grid — card 1 y 2):
   https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091434/ChatGPT_Image_24_abr_2026_22_29_56_tctsay.jpg
@@ -707,19 +708,20 @@ ARQUITECTURA ASTRO
 4. client:visible para Pricing y FAQ — hidrata solo al entrar en viewport, ahorra bundle
 5. Nunca usar client:only sin justificación explícita
 
-HERO — CSS PURO
-6. Hero.astro: fondo con gradiente CSS + blobs con position absolute — SIN imagen, sin fetch
-7. Animaciones del hero: CSS animation-delay sobre @keyframes fade-up — cero JS
-8. Esto garantiza el mejor LCP posible: el navegador pinta el hero sin esperar ningún recurso externo
+HERO — IMAGEN ESTÁTICA
+6. Hero.astro: imagen de Cloudinary con loading="eager" fetchpriority="high" — es el LCP crítico
+7. Animaciones del hero: CSS animation-delay sobre @keyframes fade-up — cero JS adicional
+8. La imagen carga con prioridad máxima; los overlays y blobs son CSS puro, sin bloqueo
 
 IMÁGENES
-9. Logo: <img> estándar | loading="eager" | width="40" height="40" | above the fold
-10. Cards de tours (ToursGrid.astro): <Image> de astro:assets
+9. Hero image: <img> con loading="eager" fetchpriority="high" decoding="async" — prioridad máxima (LCP)
+10. Logo: <img> estándar | loading="eager" | width="40" height="40" | above the fold
+11. Cards de tours (ToursGrid.astro): <Image> de astro:assets
     — src: URL Cloudinary | width/height explícitos | loading="lazy" | format="avif" inferido
     — genera srcset automático, evita CLS, produce AVIF/WebP
-11. Stats background: <img> con loading="lazy" | posición absolute inset-0
-12. Nunca <img> sin width+height — causa CLS y baja el score de Core Web Vitals
-13. alt descriptivo y específico en todas las imágenes
+12. Stats background: <img> con loading="lazy" | posición absolute inset-0
+13. Nunca <img> sin width+height — causa CLS y baja el score de Core Web Vitals
+14. alt descriptivo y específico en todas las imágenes
 
 FUENTES — FONTSOURCE SELF-HOSTED
 14. Solo @import en global.css — cero <link> externos, cero requests a google.com

@@ -5,22 +5,37 @@ const h = translations.hero;
 ---
 
 <section id="hero" class="hero-section">
+  <!-- Static Image Background (LCP Optimized) -->
+  <img
+    src="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777137161/pexels-asadphoto-1430675_obuwlc.jpg"
+    alt="Jireh Adventure"
+    class="hero-image absolute inset-0 w-full h-full object-cover object-center z-0"
+    loading="eager"
+    fetchpriority="high"
+    decoding="async"
+  />
+
+  <!-- Overlays -->
+  <!-- Capa 1: Tono general -->
+  <div class="absolute inset-0 z-10" style="background: linear-gradient(160deg, rgba(247,243,238,0.30) 0%, rgba(11,61,94,0.15) 100%)"></div>
+  <!-- Capa 2: Fade bottom hacia background -->
+  <div class="absolute bottom-0 left-0 right-0 h-[40%] z-10" style="background: linear-gradient(to bottom, transparent, hsl(36 33% 95%))"></div>
+
   <!-- Decorative blobs -->
   <div class="hero-blob hero-blob--left" aria-hidden="true"></div>
   <div class="hero-blob hero-blob--right" aria-hidden="true"></div>
-  <div class="hero-blob hero-blob--bottom" aria-hidden="true"></div>
 
   <div class="hero-content">
-
+    
     <!-- Heading -->
-    <h1 class="font-heading font-[900] uppercase leading-[0.92] tracking-[0.03em] mx-auto" style="font-size: clamp(3rem, 11vw, 9.5rem); max-width: 100vw; overflow-wrap: break-word;">
+    <h1 translate="no" class="notranslate font-heading font-[900] uppercase leading-[0.92] tracking-[0.03em] mx-auto" style="font-size: clamp(3rem, 11vw, 9.5rem); max-width: 100vw; overflow-wrap: break-word;">
       <span class="block text-[#0B3D5E]" style="animation: fade-up 0.7s ease both; animation-delay: 0.15s;">NOT JUST A TOUR.</span>
       <span class="block text-[#0B3D5E]" style="animation: fade-up 0.7s ease both; animation-delay: 0.27s;">AN UNFORGETTABLE</span>
       <span class="block text-[#1A9E75]" style="animation: fade-up 0.7s ease both; animation-delay: 0.39s;">EXPERIENCE.</span>
     </h1>
 
     <!-- Subtext -->
-    <p class="font-body font-light text-base md:text-lg text-[#0B3D5E]/70 leading-relaxed max-w-xl mx-auto mt-8" style="animation: fade-up 0.6s ease both; animation-delay: 0.6s;">
+    <p class="font-body font-light text-base md:text-lg text-[#0B3D5E]/65 leading-relaxed max-w-xl mx-auto mt-8" style="animation: fade-up 0.6s ease both; animation-delay: 0.6s;">
       <span class="lang-es">{h.sub1.es}<br />{h.sub2.es}</span>
       <span class="lang-en">{h.sub1.en}<br />{h.sub2.en}</span>
     </p>
@@ -49,21 +64,21 @@ const h = translations.hero;
     <div class="mt-16 pt-10 border-t border-[#0B3D5E]/10 inline-flex gap-12 md:gap-16 justify-center" style="animation: fade-up 0.6s ease both; animation-delay: 1.0s;">
       <div class="text-center">
         <span class="font-heading font-[800] text-4xl text-[#0B3D5E] block">500+</span>
-        <span class="font-body font-light text-xs tracking-wide text-[#0B3D5E]/55 uppercase mt-1.5 block">
+        <span class="font-body font-light text-xs tracking-wide text-[#0B3D5E]/40 uppercase mt-1.5 block">
           <span class="lang-es">{h.stat1l.es}</span>
           <span class="lang-en">{h.stat1l.en}</span>
         </span>
       </div>
       <div class="text-center">
         <span class="font-heading font-[800] text-4xl text-[#F5A623] block">5★</span>
-        <span class="font-body font-light text-xs tracking-wide text-[#0B3D5E]/55 uppercase mt-1.5 block">
+        <span class="font-body font-light text-xs tracking-wide text-[#0B3D5E]/40 uppercase mt-1.5 block">
           <span class="lang-es">{h.stat2l.es}</span>
           <span class="lang-en">{h.stat2l.en}</span>
         </span>
       </div>
       <div class="text-center">
         <span class="font-heading font-[800] text-4xl text-[#0B3D5E] block">3</span>
-        <span class="font-body font-light text-xs tracking-wide text-[#0B3D5E]/55 uppercase mt-1.5 block">
+        <span class="font-body font-light text-xs tracking-wide text-[#0B3D5E]/40 uppercase mt-1.5 block">
           <span class="lang-es">{h.stat3l.es}</span>
           <span class="lang-en">{h.stat3l.en}</span>
         </span>
@@ -72,7 +87,7 @@ const h = translations.hero;
   </div>
 
   <!-- Scroll Indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" aria-hidden="true">
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" aria-hidden="true" style="z-index: 20;">
     <div class="w-px h-12 overflow-hidden relative">
       <div class="w-full h-3 bg-[#0B3D5E]/25 rounded-full" style="animation: scroll-line 2s ease-in-out infinite;"></div>
     </div>
@@ -89,20 +104,12 @@ const h = translations.hero;
     overflow: hidden;
     text-align: center;
     position: relative;
-    background:
-      radial-gradient(circle, rgba(11,61,94,0.06) 1px, transparent 1px),
-      linear-gradient(160deg,
-        hsl(36 33% 95%) 0%,
-        hsl(185 40% 90%) 40%,
-        hsl(161 30% 88%) 100%
-      );
-    background-size: 28px 28px, 100% 100%;
     padding: 6rem 1.5rem 4rem;
   }
 
   .hero-content {
     position: relative;
-    z-index: 10;
+    z-index: 20;
     max-width: 72rem;
     width: 100%;
   }
@@ -113,6 +120,7 @@ const h = translations.hero;
     pointer-events: none;
     will-change: transform, opacity;
     transform: translateZ(0); /* Hardware acceleration */
+    z-index: 10;
   }
 
   .hero-blob--left {
@@ -121,7 +129,7 @@ const h = translations.hero;
     top: 10%;
     left: -5%;
     background: radial-gradient(ellipse, #1A9E75 0%, transparent 70%);
-    opacity: 0.09;
+    opacity: 0.06;
     filter: blur(80px);
     animation: pulse-soft 8s ease-in-out infinite;
   }
@@ -132,30 +140,17 @@ const h = translations.hero;
     top: 20%;
     right: -3%;
     background: radial-gradient(ellipse, #3AB8D8 0%, transparent 70%);
-    opacity: 0.12;
+    opacity: 0.08;
     filter: blur(70px);
     animation: pulse-soft 10s ease-in-out infinite 2s;
-  }
-
-  .hero-blob--bottom {
-    width: 600px;
-    height: 200px;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%) translateZ(0);
-    background: radial-gradient(ellipse, #0B3D5E 0%, transparent 70%);
-    opacity: 0.05;
-    filter: blur(90px);
   }
 
   @keyframes pulse-soft {
     0%, 100% {
       transform: translate3d(0, 0, 0) scale(1);
-      opacity: 0.09;
     }
     50% {
       transform: translate3d(0, 0, 0) scale(1.05);
-      opacity: 0.12;
     }
   }
 </style>

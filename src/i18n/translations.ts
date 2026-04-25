@@ -9,6 +9,8 @@ export const translations = {
 
   // ── HERO ──
   hero: {
+    badge1:  { es: '🌊 Guanacaste, Costa Rica', en: '🌊 Guanacaste, Costa Rica' },
+    badge2:  { es: 'Aventura de nivel premium', en: 'Premium level adventure' },
     h1_1:    { es: 'NOT JUST A TOUR.',   en: 'NOT JUST A TOUR.' },
     h1_2:    { es: 'AN UNFORGETTABLE',   en: 'AN UNFORGETTABLE' },
     h1_3:    { es: 'EXPERIENCE.',        en: 'EXPERIENCE.' },
