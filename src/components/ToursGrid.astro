@@ -109,18 +109,22 @@ const alts = [
   </div>
 </section>
 
-<script define:vars={{ PHONE }}>
+<script>
   function updateWhatsappLinks() {
-    const lang = document.documentElement.lang || 'es';
-    const buttons = document.querySelectorAll('[data-whatsapp-btn]');
+    const lang = document.documentElement.getAttribute('data-lang') || 'es';
+    const PHONE = '50686684823';
     
-    buttons.forEach(btn => {
-      const tourName = lang === 'es' ? btn.getAttribute('data-tour-es') : btn.getAttribute('data-tour-en');
-      const message = lang === 'es' 
-        ? `¡Hola Jireh Adventure! Me gustaría reservar el tour: ${tourName}. ¿Podrían darme más información?`
-        : `Hi Jireh Adventure! I'd like to book the tour: ${tourName}. Could you give me more information?`;
-      
-      btn.href = `https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`;
+    document.querySelectorAll('a[data-whatsapp-btn]').forEach((link) => {
+      const tourName = lang === 'es' 
+        ? link.getAttribute('data-tour-es') 
+        : link.getAttribute('data-tour-en');
+        
+      const msg = lang === 'es' 
+        ? `¡Hola! Quisiera reservar el tour: ${tourName}`
+        : `Hello! I'd like to book the tour: ${tourName}`;
+        
+      const url = `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
+      link.setAttribute('href', url);
     });
   }
 
