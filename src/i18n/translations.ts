@@ -33,12 +33,10 @@ export const translations = {
     heading: { es: 'Nuestra Historia', en: 'Our Story' },
     sub:     { es: 'Somos una empresa familiar dedicada al turismo de aventura desde hace 10 años.', en: 'We are a family business dedicated to adventure tourism for 10 years.' },
     story1:  { es: 'Nos enorgullece nuestra zona, somos bendecidos de vivir en un área con exuberante belleza natural.', en: 'We are proud of our area, blessed to live in an area with lush natural beauty.' },
-    story2:  { es: 'Queremos mostrarle al mundo a través de nuestras actividades lo lindo de Guanacaste y sus playas.', en: 'We want to show the world through our activities the beauty of Guanacaste and its beaches.' },
+    story2:  { es: 'Queremos mostrarle al mundo a través de nuestras actividades lo lindo de Guanacaste y sus playas. Junto a nuestros hijos Chris y Ethan, hacemos de cada tour una experiencia familiar.', en: 'We want to show the world through our activities the beauty of Guanacaste and its beaches. Together with our sons Chris and Ethan, we make every tour a family experience.' },
     members: [
       { initials: 'ME', name: 'Mauricio Esquivel', role: { es: 'Fundador / Guía', en: 'Founder / Guide' } },
       { initials: 'SE', name: 'Stephany Enriquez', role: { es: 'Fundadora / Operaciones', en: 'Founder / Operations' } },
-      { initials: 'CE', name: 'Chris Esquivel', role: { es: 'Equipo', en: 'Team' } },
-      { initials: 'EE', name: 'Ethan Esquivel', role: { es: 'Equipo', en: 'Team' } },
     ],
     includes: [
       { id: 'transport', label: { es: 'Transporte (aplican restricciones)', en: 'Transport (restrictions apply)' } },
