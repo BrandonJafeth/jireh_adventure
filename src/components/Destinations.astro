@@ -1,0 +1,87 @@
+---
+// Destinations.astro — Transport/excursion destinations, clean compact grid
+import { translations } from '../i18n/translations';
+const d = translations.destinations;
+
+const WHATSAPP_URL = 'https://wa.me/50686684823';
+---
+
+<section id="destinos" class="py-20 md:py-28 bg-white">
+  <div class="max-w-6xl mx-auto px-5 md:px-8">
+
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+      <span class="font-body font-semibold text-[0.62rem] tracking-[0.28em] uppercase text-[#1A9E75] mb-3 block animate-on-scroll stagger-1">
+        <span class="lang-es">{d.badge.es}</span>
+        <span class="lang-en">{d.badge.en}</span>
+      </span>
+      <h2 class="font-heading font-[800] text-4xl md:text-5xl lg:text-6xl text-[#0B3D5E] uppercase leading-[0.95] tracking-[0.02em] mb-4 animate-on-scroll stagger-2">
+        <span class="lang-es">{d.heading.es}</span>
+        <span class="lang-en">{d.heading.en}</span>
+      </h2>
+      <p class="font-body font-light text-base text-[#0B3D5E]/60 leading-relaxed animate-on-scroll stagger-3">
+        <span class="lang-es">{d.sub.es}</span>
+        <span class="lang-en">{d.sub.en}</span>
+      </p>
+    </div>
+
+    <!-- Price legend — small inline -->
+    <div class="flex items-center justify-center gap-6 mb-8 animate-on-scroll stagger-1">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#0B3D5E]"></span>
+        <span class="font-body font-medium text-[0.7rem] text-[#0B3D5E]/60 tracking-wide">
+          <span class="lang-es">{d.groupSmall.es}</span>
+          <span class="lang-en">{d.groupSmall.en}</span>
+        </span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#1A9E75]"></span>
+        <span class="font-body font-medium text-[0.7rem] text-[#0B3D5E]/60 tracking-wide">
+          <span class="lang-es">{d.groupLarge.es}</span>
+          <span class="lang-en">{d.groupLarge.en}</span>
+        </span>
+      </div>
+    </div>
+
+    <!-- Destinations Grid: 2 cols mobile, 4 cols desktop -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-10">
+      {d.items.map((item, i) => (
+        <div class={`animate-on-scroll stagger-${(i % 4) + 1} group liquid-glass-strong rounded-2xl p-4 md:p-5 hover:-translate-y-0.5 transition-all duration-300 cursor-default`}>
+          <!-- Destination name -->
+          <h3 class="font-heading font-[800] text-[0.95rem] md:text-lg text-[#0B3D5E] uppercase leading-tight mb-3">
+            {item.name}
+          </h3>
+          <!-- Prices -->
+          <div class="flex items-baseline gap-3">
+            <span class="font-heading font-[800] text-xl md:text-2xl text-[#0B3D5E] leading-none">
+              {item.price1}
+            </span>
+            <span class="font-body font-light text-[0.65rem] text-[#0B3D5E]/35">|</span>
+            <span class="font-heading font-[800] text-xl md:text-2xl text-[#1A9E75] leading-none">
+              {item.price2}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom note + CTA -->
+    <div class="text-center animate-on-scroll stagger-3">
+      <p class="font-body font-light text-sm text-[#0B3D5E]/50 mb-5">
+        <span class="lang-es">{d.note.es}</span>
+        <span class="lang-en">{d.note.en}</span>
+      </p>
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-[#0B3D5E] text-white rounded-full px-6 py-3 font-body font-semibold text-sm tracking-wider uppercase hover:bg-[#0a3450] transition-colors"
+      >
+        <span class="lang-es">Cotizar transporte</span>
+        <span class="lang-en">Get a transport quote</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+      </a>
+    </div>
+
+  </div>
+</section>

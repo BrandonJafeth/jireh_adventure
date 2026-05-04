@@ -164,6 +164,27 @@ export const translations = {
     ],
   },
 
+  // ── DESTINATIONS / TRANSPORT ──
+  destinations: {
+    badge:   { es: 'Transporte y Excursiones', en: 'Transport & Excursions' },
+    heading: { es: 'Te llevamos a los mejores destinos', en: 'We take you to the best destinations' },
+    sub:     { es: 'Servicio de transporte privado desde tu hotel. Precios varían según punto de salida y tamaño del grupo.', en: 'Private transport service from your hotel. Prices vary by departure point and group size.' },
+    note:    { es: '¿Otro destino? Preguntanos por WhatsApp y cotizamos sin compromiso.', en: 'Another destination? Ask us on WhatsApp and we\'ll quote you with no obligation.' },
+    priceLabel: { es: 'desde', en: 'from' },
+    groupSmall: { es: '1-4 pers.', en: '1-4 pers.' },
+    groupLarge: { es: '5-8 pers.', en: '5-8 pers.' },
+    items: [
+      { name: 'Río Celeste / Bijagua', price1: '$230', price2: '$270', icon: '🏞️' },
+      { name: 'Guachipelín', price1: '$200', price2: '$240', icon: '🌋' },
+      { name: 'La Leona', price1: '$200', price2: '$240', icon: '🐆' },
+      { name: 'Llanos de Cortez', price1: '$180', price2: '$220', icon: '💧' },
+      { name: 'Palo Verde', price1: '$180', price2: '$220', icon: '🦜' },
+      { name: 'Vandara', price1: '$200', price2: '$240', icon: '🌿' },
+      { name: 'Buena Vista', price1: '$200', price2: '$240', icon: '🏔️' },
+      { name: 'Aeropuerto Liberia', price1: '$80', price2: '$130', icon: '✈️' },
+    ],
+  },
+
   // ── FAQ ──
   faq: {
     heading: { es: 'Todo lo que necesitás saber', en: 'Everything you need to know' },
