@@ -1,0 +1,131 @@
+---
+// AboutUs.astro — Pure Astro, fully responsive, matches site design standard
+import { translations } from '../i18n/translations';
+const ab = translations.aboutUs;
+---
+
+<section id="nosotros" class="py-20 md:py-28 bg-white">
+  <div class="max-w-6xl mx-auto px-5 md:px-8">
+
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+      <span class="font-body font-semibold text-[0.62rem] tracking-[0.28em] uppercase text-[#1A9E75] mb-3 block animate-on-scroll stagger-1">
+        <span class="lang-es">{ab.badge.es}</span>
+        <span class="lang-en">{ab.badge.en}</span>
+      </span>
+      <h2 class="font-heading font-[800] text-4xl md:text-5xl lg:text-6xl text-[#0B3D5E] uppercase leading-[0.95] tracking-[0.02em] mb-4 animate-on-scroll stagger-2">
+        <span class="lang-es">{ab.heading.es}</span>
+        <span class="lang-en">{ab.heading.en}</span>
+      </h2>
+      <p class="font-body font-light text-base text-[#0B3D5E]/60 leading-relaxed animate-on-scroll stagger-3">
+        <span class="lang-es">{ab.sub.es}</span>
+        <span class="lang-en">{ab.sub.en}</span>
+      </p>
+    </div>
+
+    <!-- Story + Family grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center mb-8">
+
+      <!-- Left: Story -->
+      <div class="animate-on-scroll stagger-1">
+        <p class="font-body font-light text-base text-[#0B3D5E]/75 leading-relaxed mb-4">
+          <span class="lang-es">{ab.story1.es}</span>
+          <span class="lang-en">{ab.story1.en}</span>
+        </p>
+        <p class="font-body font-light text-base text-[#0B3D5E]/75 leading-relaxed">
+          <span class="lang-es">{ab.story2.es}</span>
+          <span class="lang-en">{ab.story2.en}</span>
+        </p>
+      </div>
+
+      <!-- Right: Family card — always 2-col grid inside -->
+      <div class="bg-white rounded-3xl p-5 md:p-7 animate-on-scroll stagger-2 shadow-[0_4px_24px_rgba(11,61,94,0.08)] border border-[#0B3D5E]/6">
+        <h3 class="font-heading font-[800] text-[0.7rem] uppercase tracking-[0.22em] text-[#0B3D5E]/40 mb-5">
+          <span class="lang-es">Nuestra familia</span>
+          <span class="lang-en">Our family</span>
+        </h3>
+        <!-- Always 2 columns regardless of screen size -->
+        <div class="grid grid-cols-2 gap-3">
+          {ab.members.map((member, i) => (
+            <div class="flex items-center gap-2.5 p-3 rounded-2xl bg-white/80">
+              <span class="w-8 h-8 rounded-full bg-[#1A9E75]/12 flex items-center justify-center shrink-0 text-[#1A9E75] font-heading font-[800] text-xs">
+                {member.initials}
+              </span>
+              <div class="min-w-0">
+                <span class="font-body font-semibold text-[0.8rem] text-[#0B3D5E] block leading-tight truncate">
+                  {member.name}
+                </span>
+                <span class="font-body font-light text-[0.6rem] text-[#0B3D5E]/40 tracking-wide uppercase block mt-0.5 truncate">
+                  <span class="lang-es">{member.role.es}</span>
+                  <span class="lang-en">{member.role.en}</span>
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- What's included strip -->
+    <div class="liquid-glass-strong rounded-3xl p-5 md:p-7 animate-on-scroll stagger-3">
+
+      <!-- Mobile: stacked. Desktop: row -->
+      <div class="flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
+
+        <!-- Title -->
+        <div class="shrink-0 md:min-w-[180px]">
+          <span class="font-body font-semibold text-[0.6rem] tracking-[0.25em] uppercase text-[#1A9E75] mb-1.5 block">
+            <span class="lang-es">Incluido en todos los tours</span>
+            <span class="lang-en">Included in every tour</span>
+          </span>
+          <h3 class="font-heading font-[800] text-2xl md:text-3xl text-[#0B3D5E] uppercase leading-[0.95]">
+            <span class="lang-es">Sin cargos ocultos</span>
+            <span class="lang-en">No hidden fees</span>
+          </h3>
+        </div>
+
+        <div class="w-px h-12 bg-[#0B3D5E]/10 hidden md:block shrink-0"></div>
+
+        <!-- Items — row on all sizes, wraps cleanly -->
+        <div class="flex flex-row flex-wrap gap-x-6 gap-y-4 flex-1">
+          {ab.includes.map((item) => (
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-full liquid-glass flex items-center justify-center shrink-0 text-[#0B3D5E]/55">
+                {item.id === 'transport' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
+                )}
+                {item.id === 'water' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+                )}
+                {item.id === 'fruit' && (
+                  <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>
+                )}
+              </div>
+              <span class="font-body font-medium text-[0.8rem] text-[#0B3D5E]/75 leading-tight">
+                <span class="lang-es">{item.label.es}</span>
+                <span class="lang-en">{item.label.en}</span>
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Equipment note -->
+      <div class="mt-6 pt-5 border-t border-[#0B3D5E]/8 flex flex-row flex-wrap items-center gap-x-3 gap-y-1">
+        <div class="flex items-center gap-1.5 shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1A9E75" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg>
+          <span class="font-body font-semibold text-[0.65rem] uppercase tracking-[0.2em] text-[#0B3D5E]/55">
+            <span class="lang-es">Flota Certificada</span>
+            <span class="lang-en">Certified Fleet</span>
+          </span>
+        </div>
+        <span class="w-1 h-1 rounded-full bg-[#0B3D5E]/20"></span>
+        <p class="font-body font-light text-[0.72rem] text-[#0B3D5E]/40">
+          <span class="lang-es">{ab.equipment.es}</span>
+          <span class="lang-en">{ab.equipment.en}</span>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
