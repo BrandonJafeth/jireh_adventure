@@ -10,6 +10,10 @@ const {
   title = 'Premium Jet Ski & ATV Tours | Playa Flamingo & Conchal | Jireh Adventure',
   description = 'High-end Jet Ski and ATV jungle tours in Playa Flamingo, Playa Conchal, and Brasilito, Costa Rica. Book your premium Guanacaste adventure today.',
 } = Astro.props;
+
+const canonicalUrl = 'https://jirehadventure.com/';
+const ogImage = 'https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_1200/v1777091645/ChatGPT_Image_24_abr_2026_22_33_54_ya2ubz.jpg';
+const logoUrl = 'https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091156/ChatGPT_Image_24_abr_2026_22_24_53_v7edc4.png';
 ---
 
 <!doctype html>
@@ -17,10 +21,24 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091156/ChatGPT_Image_24_abr_2026_22_24_53_v7edc4.png" />
-    <meta name="generator" content={Astro.generator} />
 
-    <!-- Language system — init as early as possible -->
+    <!-- ── Favicon ── -->
+    <link rel="icon" type="image/png" href={logoUrl} />
+
+    <!-- ── Robots ── -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+
+    <!-- ── Canonical & hreflang ── -->
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang="en" href={canonicalUrl} />
+    <link rel="alternate" hreflang="es" href={canonicalUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+
+    <!-- ── Sitemap discovery ── -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- ── Language system — init as early as possible ── -->
     <script is:inline>
       (function() {
         const STORAGE_KEY = 'jireh-lang';
@@ -30,48 +48,266 @@ const {
       })();
     </script>
 
-    <!-- SEO & Meta Tags (Targeting US/Euro tourists) -->
+    <!-- ── Primary SEO ── -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="jet ski rental playa flamingo, atv tours playa conchal, zip line guanacaste, costa rica adventure tours, things to do in flamingo beach, premium jet ski costa rica, atv jungle tour brasilito" />
+    <meta name="keywords" content="jet ski rental playa flamingo, jet ski costa rica, atv tours playa conchal, atv guanacaste, zip line guanacaste, costa rica adventure tours, things to do in flamingo beach, premium jet ski costa rica, atv jungle tour brasilito, jet ski playa conchal, honeymoon beach jet ski tour, guanacaste water sports, adventure tours guanacaste, jireh adventure, family adventure tours costa rica" />
     <meta name="author" content="Jireh Adventure" />
-    <link rel="canonical" href={Astro.url.href} />
 
-    <!-- LCP Preload: Hero Image -->
-    <link rel="preload" as="image" href="https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_800/v1777137161/pexels-asadphoto-1430675_obuwlc.jpg" media="(max-width: 767px)" />
-    <link rel="preload" as="image" href="https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_1920/v1777137161/pexels-asadphoto-1430675_obuwlc.jpg" media="(min-width: 768px)" />
+    <!-- ── Geo tags (critical for local SEO in Google Maps & Search) ── -->
+    <meta name="geo.region" content="CR-G" />
+    <meta name="geo.placename" content="Playa Flamingo, Guanacaste, Costa Rica" />
+    <meta name="geo.position" content="10.4444;-85.7897" />
+    <meta name="ICBM" content="10.4444, -85.7897" />
 
-    <!-- Open Graph / Facebook -->
+    <!-- ── LCP Preload: Hero Image ── -->
+    <link rel="preload" as="image" href="https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_800/v1777137161/pexels-asadphoto-1430675_obuwlc.jpg" media="(max-width: 767px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_1920/v1777137161/pexels-asadphoto-1430675_obuwlc.jpg" media="(min-width: 768px)" fetchpriority="high" />
+
+    <!-- ── Open Graph / Facebook ── -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content="Jireh Adventure" />
-    <meta property="og:image" content="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091645/ChatGPT_Image_24_abr_2026_22_33_54_ya2ubz.jpg" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_CR" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:secure_url" content={ogImage} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Premium Jet Ski and ATV adventure tours in Playa Flamingo, Guanacaste, Costa Rica – Jireh Adventure" />
 
-    <!-- Twitter -->
+    <!-- ── Twitter / X ── -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content={Astro.url.href} />
+    <meta name="twitter:site" content="@jirehadventures" />
+    <meta name="twitter:creator" content="@jirehadventures" />
+    <meta name="twitter:url" content={canonicalUrl} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091645/ChatGPT_Image_24_abr_2026_22_33_54_ya2ubz.jpg" />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="Jet Ski and ATV tours – Jireh Adventure, Guanacaste Costa Rica" />
 
-    <!-- Structured Data (LocalBusiness) -->
+    <!-- ── Schema.org — Organization ── -->
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "TouristAttraction",
-        "name": "Jireh Adventure",
-        "image": "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091645/ChatGPT_Image_24_abr_2026_22_33_54_ya2ubz.jpg",
-        "description": "Premium Jet Ski and ATV tours in Playa Flamingo, Playa Conchal, and Brasilito, Costa Rica.",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Playa Flamingo, Guanacaste",
-          "addressCountry": "CR"
-        },
-        "priceRange": "$$$"
-      }
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://jirehadventure.com/#organization",
+      "name": "Jireh Adventure",
+      "url": "https://jirehadventure.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091156/ChatGPT_Image_24_abr_2026_22_24_53_v7edc4.png",
+        "width": 200,
+        "height": 200
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+506-8668-4823",
+        "contactType": "reservations",
+        "areaServed": ["US","CR","CA","GB","DE","FR","NL","ES"],
+        "availableLanguage": ["English","Spanish"]
+      },
+      "sameAs": [
+        "https://www.instagram.com/jirehadventures",
+        "https://wa.me/50686684823"
+      ]
+    }
     </script>
+
+    <!-- ── Schema.org — LocalBusiness + TouristAttraction ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["LocalBusiness", "TouristAttraction"],
+      "@id": "https://jirehadventure.com/#localbusiness",
+      "name": "Jireh Adventure",
+      "description": "Family-owned premium adventure tour company offering Jet Ski rentals, ATV jungle tours, Zip Line, and combo packages in Playa Flamingo, Playa Conchal, and Brasilito, Guanacaste, Costa Rica. 10+ years of experience. Professional guides and certified equipment.",
+      "url": "https://jirehadventure.com/",
+      "telephone": "+506-8668-4823",
+      "email": "reservas.jadventure@gmail.com",
+      "image": [
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091645/ChatGPT_Image_24_abr_2026_22_33_54_ya2ubz.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091434/ChatGPT_Image_24_abr_2026_22_29_56_tctsay.jpg",
+        "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091548/Captura_de_pantalla_2026-04-24_223154_y6hrey.jpg"
+      ],
+      "logo": "https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091156/ChatGPT_Image_24_abr_2026_22_24_53_v7edc4.png",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Playa Flamingo",
+        "addressLocality": "Playa Flamingo",
+        "addressRegion": "Guanacaste",
+        "addressCountry": "CR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 10.4444,
+        "longitude": -85.7897
+      },
+      "areaServed": [
+        { "@type": "Place", "name": "Playa Flamingo" },
+        { "@type": "Place", "name": "Playa Conchal" },
+        { "@type": "Place", "name": "Brasilito" },
+        { "@type": "Place", "name": "Guanacaste" }
+      ],
+      "priceRange": "$$-$$$",
+      "currenciesAccepted": "USD, CRC",
+      "paymentAccepted": "Cash, Credit Card, WhatsApp Reservation",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "07:00",
+        "closes": "17:00"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "500"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Jireh Adventure Tour Packages",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "Jet Ski Free Session – 1 Hour",
+            "description": "1-hour free jet ski session in Playa Flamingo. Full safety briefing, equipment included, professional guide.",
+            "price": "130",
+            "priceCurrency": "USD",
+            "url": "https://wa.me/50686684823?text=Hola!%20Quiero%20reservar%20Jet%20Ski%201%20hora",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Jet Ski Tour – 2 Hours (Honeymoon Beach)",
+            "description": "2-hour guided jet ski tour along the Guanacaste coastline: Potrero, Penca, Prieta, Sugar, Danta and Honeymoon Beach snorkeling stop.",
+            "price": "200",
+            "priceCurrency": "USD",
+            "url": "https://wa.me/50686684823?text=Hola!%20Quiero%20reservar%20Jet%20Ski%20Tour%202%20horas",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "ATV Jungle Tour – 2 Hours",
+            "description": "2-hour ATV off-road tour through scenic Guanacaste backroads, viewpoints and wildlife sightings. Single or double ATV available.",
+            "price": "80",
+            "priceCurrency": "USD",
+            "url": "https://wa.me/50686684823?text=Hola!%20Quiero%20reservar%20ATV%20Tour",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Combo ATV + Jet Ski",
+            "description": "Half-day combo: 2 hours ATV jungle tour plus 1 hour free jet ski session. The favorite for couples and groups.",
+            "price": "130",
+            "priceCurrency": "USD",
+            "url": "https://wa.me/50686684823?text=Hola!%20Quiero%20reservar%20el%20Combo%20ATV%20+%20Jet%20Ski",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "ATV + Zip Line Combo",
+            "description": "ATV jungle tour combined with Zip Line at Monkey Jungle – the best canopy experience in Guanacaste. ~3-4 hours.",
+            "price": "130",
+            "priceCurrency": "USD",
+            "url": "https://wa.me/50686684823?text=Hola!%20Quiero%20reservar%20el%20Combo%20ATV%20+%20Zip%20Line",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      },
+      "parentOrganization": {
+        "@id": "https://jirehadventure.com/#organization"
+      }
+    }
+    </script>
+
+    <!-- ── Schema.org — FAQPage ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I need prior experience for the Jet Ski?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No experience needed. Before every session we provide a full safety briefing. Our professional guides accompany you at all times so you feel safe from the very first minute."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I make a reservation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Simply send us a WhatsApp message at +506 8668 4823. No complicated forms or external payment pages. Instant confirmation with all meeting point and schedule details."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where exactly do the tours operate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We operate in Playa Flamingo, Playa Conchal, and Brasilito in northern Guanacaste, Costa Rica. When you book, we confirm the exact meeting point based on your location."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is included in the price?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All tours include full safety equipment, a professional guide, and a safety briefing. Photos and videos are optional and arranged at the time of booking."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can children or older adults join the tours?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tours have age and weight restrictions for safety reasons. Contact us on WhatsApp with your group details and we'll advise you on the best option for everyone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does a jet ski rental cost in Playa Flamingo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Jet ski rental in Playa Flamingo starts from $130 per person for a 1-hour free session. The 2-hour guided tour to Honeymoon Beach is $200 per person. All prices include safety equipment and professional guide."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much do ATV tours cost in Guanacaste?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ATV single tours start from $80 per person. Double ATV is $90. The ATV + Zip Line combo starts from $130 (single) or $170 (double). All tours include guide and safety equipment."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ── Schema.org — WebSite with Sitelinks Searchbox ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://jirehadventure.com/#website",
+      "url": "https://jirehadventure.com/",
+      "name": "Jireh Adventure",
+      "description": "Premium Jet Ski and ATV tours in Playa Flamingo, Guanacaste, Costa Rica",
+      "publisher": {
+        "@id": "https://jirehadventure.com/#organization"
+      },
+      "inLanguage": ["en", "es"]
+    }
+    </script>
+
+    <meta name="generator" content={Astro.generator} />
   </head>
   <body>
     <slot />
