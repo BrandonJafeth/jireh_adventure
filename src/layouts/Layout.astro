@@ -7,13 +7,16 @@ interface Props {
 }
 
 const {
-  title = 'Premium Jet Ski & ATV Tours | Playa Flamingo & Conchal | Jireh Adventure',
-  description = 'High-end Jet Ski and ATV jungle tours in Playa Flamingo, Playa Conchal, and Brasilito, Costa Rica. Book your premium Guanacaste adventure today.',
+  title = 'Jet Ski & ATV Tours Playa Flamingo, Conchal & Brasilito | Jireh Adventure Costa Rica',
+  description = 'Best Jet Ski rental & ATV tours in Playa Flamingo, Playa Conchal and Brasilito, Guanacaste. Family-run, certified guides, premium equipment. Book via WhatsApp — instant confirmation!',
 } = Astro.props;
 
 const canonicalUrl = 'https://jirehadventure.com/';
 const ogImage = 'https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_1200/v1777091645/ChatGPT_Image_24_abr_2026_22_33_54_ya2ubz.jpg';
 const logoUrl = 'https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091156/ChatGPT_Image_24_abr_2026_22_24_53_v7edc4.png';
+// Google Maps — Jireh Adventure business listing
+const googleMapsUrl = 'https://share.google/xbvwrRzYjkQ1QUt9N';
+const googleMapsPlace = 'https://www.google.com/maps/place/Jireh+Adventure/@10.5158,-85.7768,15z';
 ---
 
 <!doctype html>
@@ -51,14 +54,52 @@ const logoUrl = 'https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091156/C
     <!-- ── Primary SEO ── -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="jet ski rental playa flamingo, jet ski costa rica, atv tours playa conchal, atv guanacaste, zip line guanacaste, costa rica adventure tours, things to do in flamingo beach, premium jet ski costa rica, atv jungle tour brasilito, jet ski playa conchal, honeymoon beach jet ski tour, guanacaste water sports, adventure tours guanacaste, jireh adventure, family adventure tours costa rica" />
+    <!--
+      Keywords strategy: 3 beach clusters × activity types × tourist origin markets
+      Playa Flamingo | Playa Conchal | Brasilito | Potrero | Playa Prieta | Honeymoon Beach
+      Jet Ski | ATV | Zip Line | Combo | Snorkeling stop
+      Markets: US, Canada, UK, Germany, France, Netherlands
+    -->
+    <meta name="keywords" content="
+      jet ski rental playa flamingo costa rica,
+      jet ski playa flamingo guanacaste,
+      jet ski rental playa conchal,
+      jet ski tour playa conchal costa rica,
+      jet ski brasilito,
+      jet ski honeymoon beach guanacaste,
+      jet ski potrero beach costa rica,
+      atv tour playa flamingo,
+      atv jungle tour guanacaste costa rica,
+      atv tour playa conchal,
+      atv brasilito guanacaste,
+      zip line guanacaste costa rica,
+      zip line playa flamingo,
+      combo jet ski atv guanacaste,
+      water sports playa flamingo,
+      water sports guanacaste,
+      adventure tours guanacaste costa rica,
+      things to do playa flamingo,
+      things to do playa conchal,
+      things to do brasilito costa rica,
+      guanacaste adventure tours for tourists,
+      best tours guanacaste costa rica,
+      ocean tours flamingo beach costa rica,
+      family adventure tours guanacaste,
+      couples adventure tours costa rica,
+      premium jet ski costa rica,
+      costa rica water adventures,
+      jireh adventure costa rica,
+      book jet ski costa rica whatsapp,
+      snorkeling honeymoon beach guanacaste
+    " />
     <meta name="author" content="Jireh Adventure" />
 
-    <!-- ── Geo tags (critical for local SEO in Google Maps & Search) ── -->
+    <!-- ── Geo tags — Playa Flamingo, Guanacaste (primary operation area) ── -->
+    <!-- Coordinates: Playa Flamingo beach area, Guanacaste, Costa Rica -->
     <meta name="geo.region" content="CR-G" />
-    <meta name="geo.placename" content="Playa Flamingo, Guanacaste, Costa Rica" />
-    <meta name="geo.position" content="10.4444;-85.7897" />
-    <meta name="ICBM" content="10.4444, -85.7897" />
+    <meta name="geo.placename" content="Playa Flamingo, Santa Cruz, Guanacaste, Costa Rica" />
+    <meta name="geo.position" content="10.5158;-85.7768" />
+    <meta name="ICBM" content="10.5158, -85.7768" />
 
     <!-- ── LCP Preload: Hero Image ── -->
     <link rel="preload" as="image" href="https://res.cloudinary.com/dkwvaxxdw/image/upload/f_auto,q_auto,w_800/v1777137161/pexels-asadphoto-1430675_obuwlc.jpg" media="(max-width: 767px)" fetchpriority="high" />
@@ -107,12 +148,13 @@ const logoUrl = 'https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091156/C
         "@type": "ContactPoint",
         "telephone": "+506-8668-4823",
         "contactType": "reservations",
-        "areaServed": ["US","CR","CA","GB","DE","FR","NL","ES"],
+        "areaServed": ["US","CR","CA","GB","DE","FR","NL","ES","IT","AU"],
         "availableLanguage": ["English","Spanish"]
       },
       "sameAs": [
         "https://www.instagram.com/jirehadventures",
-        "https://wa.me/50686684823"
+        "https://wa.me/50686684823",
+        "https://share.google/xbvwrRzYjkQ1QUt9N"
       ]
     }
     </script>
@@ -121,11 +163,12 @@ const logoUrl = 'https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091156/C
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": ["LocalBusiness", "TouristAttraction"],
+      "@type": ["LocalBusiness", "TouristAttraction", "SportsActivityLocation"],
       "@id": "https://jirehadventure.com/#localbusiness",
       "name": "Jireh Adventure",
-      "description": "Family-owned premium adventure tour company offering Jet Ski rentals, ATV jungle tours, Zip Line, and combo packages in Playa Flamingo, Playa Conchal, and Brasilito, Guanacaste, Costa Rica. 10+ years of experience. Professional guides and certified equipment.",
+      "description": "Family-run premium adventure tour company with 10+ years of experience. Offering Jet Ski free sessions & guided tours, ATV jungle tours, Zip Line and combo packages in Playa Flamingo, Playa Conchal and Brasilito, Guanacaste, Costa Rica. Certified guides, Yamaha Grizzly & Honda ATVs, Yamaha Jet Skis. Book instantly via WhatsApp.",
       "url": "https://jirehadventure.com/",
+      "hasMap": "https://share.google/xbvwrRzYjkQ1QUt9N",
       "telephone": "+506-8668-4823",
       "email": "reservas.jadventure@gmail.com",
       "image": [
@@ -139,20 +182,40 @@ const logoUrl = 'https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091156/C
         "streetAddress": "Playa Flamingo",
         "addressLocality": "Playa Flamingo",
         "addressRegion": "Guanacaste",
+        "postalCode": "50309",
         "addressCountry": "CR"
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 10.4444,
-        "longitude": -85.7897
+        "latitude": 10.5158,
+        "longitude": -85.7768
       },
       "areaServed": [
-        { "@type": "Place", "name": "Playa Flamingo" },
-        { "@type": "Place", "name": "Playa Conchal" },
-        { "@type": "Place", "name": "Brasilito" },
+        { "@type": "Place", "name": "Playa Flamingo", "geo": { "@type": "GeoCoordinates", "latitude": 10.5158, "longitude": -85.7768 } },
+        { "@type": "Place", "name": "Playa Conchal", "geo": { "@type": "GeoCoordinates", "latitude": 10.4630, "longitude": -85.7857 } },
+        { "@type": "Place", "name": "Brasilito", "geo": { "@type": "GeoCoordinates", "latitude": 10.4710, "longitude": -85.7870 } },
+        { "@type": "Place", "name": "Playa Potrero", "geo": { "@type": "GeoCoordinates", "latitude": 10.5039, "longitude": -85.7891 } },
+        { "@type": "Place", "name": "Honeymoon Beach", "geo": { "@type": "GeoCoordinates", "latitude": 10.5320, "longitude": -85.7710 } },
+        { "@type": "Place", "name": "Playa Prieta" },
+        { "@type": "Place", "name": "Playa Sugar" },
         { "@type": "Place", "name": "Guanacaste" }
       ],
-      "priceRange": "$$-$$$",
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "International tourists, US travelers, European visitors, adventure seekers, couples, families",
+        "geographicArea": [
+          { "@type": "Country", "name": "United States" },
+          { "@type": "Country", "name": "Canada" },
+          { "@type": "Country", "name": "United Kingdom" },
+          { "@type": "Country", "name": "Germany" },
+          { "@type": "Country", "name": "France" },
+          { "@type": "Country", "name": "Netherlands" },
+          { "@type": "Country", "name": "Spain" },
+          { "@type": "Country", "name": "Italy" }
+        ]
+      },
+      "tourBookingPage": "https://wa.me/50686684823?text=Hola!%20Quiero%20reservar%20un%20tour",
+      "priceRange": "$80–$200 USD",
       "currenciesAccepted": "USD, CRC",
       "paymentAccepted": "Cash, Credit Card, WhatsApp Reservation",
       "openingHoursSpecification": {
