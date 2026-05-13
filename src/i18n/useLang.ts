@@ -5,8 +5,8 @@ const LANG_EVENT = 'lang-change';
 const STORAGE_KEY = 'jireh-lang';
 
 export function getLang(): Lang {
-  if (typeof window === 'undefined') return 'es';
-  return (localStorage.getItem(STORAGE_KEY) as Lang) || 'es';
+  if (typeof window === 'undefined') return 'en';
+  return (localStorage.getItem(STORAGE_KEY) as Lang) || 'en';
 }
 
 export function setLang(lang: Lang) {
