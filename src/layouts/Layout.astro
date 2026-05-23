@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = 'Jet Ski & ATV Tours Playa Flamingo, Conchal & Brasilito | Jireh Adventure Costa Rica',
-  description = 'Best Jet Ski rental & ATV tours in Playa Flamingo, Playa Conchal and Brasilito, Guanacaste. Family-run, certified guides, premium equipment. Book via WhatsApp — instant confirmation!',
+  title = 'Jet Ski & ATV Tours Playa Flamingo, Guanacaste | Jireh Adventure',
+  description = 'Best Jet Ski & ATV tours in Playa Flamingo and Conchal, Guanacaste. Family-run, certified guides, premium equipment. Book via WhatsApp — instant confirmation.',
 } = Astro.props;
 
 const canonicalUrl = 'https://jirehadventure.com/';
@@ -23,6 +23,7 @@ const googleMapsPlace = 'https://www.google.com/maps/place/Jireh+Adventure/@10.5
 <html lang="en" data-lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- ── Favicon ── -->
@@ -231,7 +232,7 @@ const googleMapsPlace = 'https://www.google.com/maps/place/Jireh+Adventure/@10.5
         "ratingValue": "5",
         "bestRating": "5",
         "worstRating": "1",
-        "ratingCount": "500"
+        "ratingCount": 500
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -364,7 +365,7 @@ const googleMapsPlace = 'https://www.google.com/maps/place/Jireh+Adventure/@10.5
       "@id": "https://jirehadventure.com/#website",
       "url": "https://jirehadventure.com/",
       "name": "Jireh Adventure",
-      "description": "Premium Jet Ski and ATV tours in Playa Flamingo, Guanacaste, Costa Rica",
+      "description": "Best Jet Ski and ATV tours in Playa Flamingo, Playa Conchal, and Brasilito, Guanacaste, Costa Rica. Family-run, certified guides, premium equipment.",
       "publisher": {
         "@id": "https://jirehadventure.com/#organization"
       },
@@ -372,7 +373,7 @@ const googleMapsPlace = 'https://www.google.com/maps/place/Jireh+Adventure/@10.5
     }
     </script>
 
-    <meta name="generator" content={Astro.generator} />
+    <meta name="generator" content="" />
   </head>
   <body>
     <slot />
@@ -406,12 +407,12 @@ const googleMapsPlace = 'https://www.google.com/maps/place/Jireh+Adventure/@10.5
 
         // Update Page Title & Description dynamically
         const titles: any = {
-          es: 'Tours de Jet Ski y ATV Premium | Playa Flamingo y Conchal | Jireh Adventure',
-          en: 'Premium Jet Ski & ATV Tours | Playa Flamingo & Conchal | Jireh Adventure'
+          es: 'Tours Jet Ski y ATV Playa Flamingo, Guanacaste | Jireh Adventure',
+          en: 'Jet Ski & ATV Tours Playa Flamingo, Guanacaste | Jireh Adventure'
         };
         const descriptions: any = {
-          es: 'Tours de Jet Ski y ATV de alta gama en Playa Flamingo, Playa Conchal y Brasilito, Costa Rica. Reserva tu aventura premium hoy.',
-          en: 'High-end Jet Ski and ATV jungle tours in Playa Flamingo, Playa Conchal, and Brasilito, Costa Rica. Book your premium Guanacaste adventure today.'
+          es: 'Tours de Jet Ski y ATV de alta gama en Playa Flamingo, Playa Conchal y Brasilito, Guanacaste. Guías certificados, equipos premium. Reserva por WhatsApp.',
+          en: 'Best Jet Ski & ATV tours in Playa Flamingo and Conchal, Guanacaste. Family-run, certified guides, premium equipment. Book via WhatsApp — instant confirmation.'
         };
         
         document.title = titles[lang] || titles.en;

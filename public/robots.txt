@@ -7,7 +7,6 @@ User-agent: *
 Allow: /
 
 # Disallow crawling of dev/build artefacts
-Disallow: /_astro/
 Disallow: /node_modules/
 
 # Sitemap location

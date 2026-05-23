@@ -7,7 +7,7 @@
   <!-- ================================================
        JIREH ADVENTURE — sitemap.xml
        https://jirehadventure.com/
-       Generated: 2026-05-12
+       Generated: 2026-05-22
        ================================================ -->
 
   <!-- ── Homepage (canonical EN) ── -->
@@ -28,7 +28,7 @@
       hreflang="x-default"
       href="https://jirehadventure.com/"
     />
-    <lastmod>2026-05-12</lastmod>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -55,65 +55,6 @@
       <image:caption>The ultimate combo adventure: jet ski on the ocean and ATV in the jungle of Costa Rica</image:caption>
       <image:geo_location>Playa Conchal, Guanacaste, Costa Rica</image:geo_location>
     </image:image>
-  </url>
-
-  <!-- ── Deep-link anchors for Google's carousel / sitelinks ── -->
-
-  <url>
-    <loc>https://jirehadventure.com/#tours</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://jirehadventure.com/#jet-ski</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091434/ChatGPT_Image_24_abr_2026_22_29_56_tctsay.jpg</image:loc>
-      <image:title>Jet Ski 1-hour free session – Jireh Adventure Playa Flamingo</image:title>
-      <image:caption>Jet ski rental from $130 per person – Playa Flamingo, Costa Rica</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://jirehadventure.com/#atv</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-    <image:image>
-      <image:loc>https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091548/Captura_de_pantalla_2026-04-24_223154_y6hrey.jpg</image:loc>
-      <image:title>ATV jungle tour Guanacaste Costa Rica – Jireh Adventure</image:title>
-      <image:caption>2-hour ATV off-road tour from $80 per person – Brasilito, Guanacaste</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://jirehadventure.com/#combo</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://res.cloudinary.com/dkwvaxxdw/image/upload/v1777091645/ChatGPT_Image_24_abr_2026_22_33_54_ya2ubz.jpg</image:loc>
-      <image:title>Combo Jet Ski + ATV + Zip Line tour Guanacaste – Jireh Adventure</image:title>
-      <image:caption>Full combo adventure package starting from $130 – Guanacaste, Costa Rica</image:caption>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://jirehadventure.com/#faq</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://jirehadventure.com/#contacto</loc>
-    <lastmod>2026-05-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.55</priority>
   </url>
 
 </urlset>
