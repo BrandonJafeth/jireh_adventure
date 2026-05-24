@@ -15,6 +15,3 @@ Sitemap: https://jirehadventure.com/sitemap.xml
 # AI / LLM site description
 # See /llms.txt for machine-readable site context
 # https://llmstxt.org/
-
-# Crawl-delay for well-behaved bots (optional)
-Crawl-delay: 5
