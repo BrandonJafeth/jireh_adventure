@@ -1,8 +1,13 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "jirehadventure",
-  "compatibility_date": "2026-09-21",
-  "assets": {
-    "directory": "./dist"
-  }
+	"compatibility_date": "2026-05-24",
+	"compatibility_flags": ["global_fetch_strictly_public"],
+	"name": "jireh_adventure",
+	"main": "@astrojs/cloudflare/entrypoints/server",
+	"assets": {
+		"directory": "./dist",
+		"binding": "ASSETS"
+	},
+	"observability": {
+		"enabled": true
+	}
 }
